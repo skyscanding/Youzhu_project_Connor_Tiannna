@@ -1,0 +1,1103 @@
+{
+  "channels": [
+    {
+      "id": "govcn",
+      "org": "国务院",
+      "site_name": "中国政府网·政策文件库",
+      "url": "https://www.gov.cn/zhengce/zhengceku/",
+      "level": "national",
+      "pilot": false,
+      "description": "政策库；发布《城市更新“十五五”规划》(国发〔2026〕12号)、《持续推进城市更新行动的意见》"
+    },
+    {
+      "id": "mohurd",
+      "org": "住房和城乡建设部",
+      "site_name": "住房城乡建设部官网",
+      "url": "https://www.mohurd.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "城市更新行动牵头主管部门；发布防止大拆大建通知、第一批/第二批试点城市名单、可复制经验做法清单、中央财政支持城市更新行动联合通知"
+    },
+    {
+      "id": "mnr",
+      "org": "自然资源部",
+      "site_name": "自然资源部官网",
+      "url": "https://www.mnr.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "发布《支持城市更新的规划与土地政策指引(2023版)》、自然资发〔2025〕226号"
+    },
+    {
+      "id": "mof",
+      "org": "财政部",
+      "site_name": "财政部官网",
+      "url": "https://www.mof.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "办公厅发布《关于开展2026年度中央财政支持实施城市更新行动的通知》(财办建〔2026〕14号)"
+    },
+    {
+      "id": "mof-bgt",
+      "org": "财政部办公厅",
+      "site_name": "财政部办公厅官网",
+      "url": "https://bgt.mof.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "发布《关于开展2026年度中央财政支持实施城市更新行动的通知》(财办建〔2026〕14号)"
+    },
+    {
+      "id": "ndrc",
+      "org": "国家发展和改革委员会",
+      "site_name": "国家发展改革委官网",
+      "url": "https://www.ndrc.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "投资项目审批、中央预算内投资；投资项目在线审批监管平台 https://www.tzxm.gov.cn"
+    },
+    {
+      "id": "ndrc-tzxm",
+      "org": "国家发展和改革委员会",
+      "site_name": "国家投资项目在线审批监管平台",
+      "url": "https://www.tzxm.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "投资项目在线审批监管平台"
+    },
+    {
+      "id": "scio",
+      "org": "国务院新闻办公室",
+      "site_name": "国新办官网",
+      "url": "https://www.scio.gov.cn",
+      "level": "national",
+      "pilot": false,
+      "description": "政策例行吹风会，解读《城市更新“十五五”规划》等"
+    },
+    {
+      "id": "bj-portal",
+      "org": "北京市人民政府",
+      "site_name": "首都之窗·北京城市更新专栏",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/index.html",
+      "level": "city",
+      "pilot": true,
+      "description": "汇总国家+北京市全部城市更新政策文件；挂《北京市城市更新政策激励工具箱(1.0版)》通知链接、《北京市城市更新条例》等"
+    },
+    {
+      "id": "bj-zjw",
+      "org": "市住房城乡建设委",
+      "site_name": "市住建委官网",
+      "url": "https://zjw.beijing.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "《北京市城市更新政策激励工具箱(1.0版)》(2026-01-01)的发布/代章主体"
+    },
+    {
+      "id": "bj-zjw-csgx",
+      "org": "市住房城乡建设委",
+      "site_name": "市住建委·城市更新主题分类",
+      "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/aztfl64/csgx/index.shtml",
+      "level": "city",
+      "pilot": true,
+      "description": "汇总全部配套政策、项目库与专家委员会管理办法"
+    },
+    {
+      "id": "bj-ghzrzyw",
+      "org": "市规划自然资源委",
+      "site_name": "市规自委官网",
+      "url": "https://ghzrzyw.beijing.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "《深化建筑规模管理激励城市更新的管理规定》等配套政策与解读"
+    },
+    {
+      "id": "bj-dc",
+      "org": "东城区人民政府",
+      "site_name": "东城区政府门户",
+      "url": "http://www.bjdch.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-xc",
+      "org": "西城区人民政府",
+      "site_name": "西城区政府门户",
+      "url": "http://www.bjxch.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-cy",
+      "org": "朝阳区人民政府",
+      "site_name": "朝阳区政府门户",
+      "url": "http://www.bjchy.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-hd",
+      "org": "海淀区人民政府",
+      "site_name": "海淀区政府门户",
+      "url": "https://www.bjhd.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-ft",
+      "org": "丰台区人民政府",
+      "site_name": "丰台区政府门户",
+      "url": "http://www.bjft.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-sjs",
+      "org": "石景山区人民政府",
+      "site_name": "石景山区政府门户",
+      "url": "http://www.bjsjs.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-mtg",
+      "org": "门头沟区人民政府",
+      "site_name": "门头沟区政府门户",
+      "url": "http://www.bjmtg.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-fs",
+      "org": "房山区人民政府",
+      "site_name": "房山区政府门户",
+      "url": "http://www.bjfsh.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-tz",
+      "org": "通州区人民政府",
+      "site_name": "通州区政府门户",
+      "url": "http://www.bjtzh.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息（城市副中心相关更新政策）"
+    },
+    {
+      "id": "bj-sy",
+      "org": "顺义区人民政府",
+      "site_name": "顺义区政府门户",
+      "url": "https://www.bjshy.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-cp",
+      "org": "昌平区人民政府",
+      "site_name": "昌平区政府门户",
+      "url": "http://www.bjchp.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-dx",
+      "org": "大兴区人民政府",
+      "site_name": "大兴区政府门户",
+      "url": "http://www.bjdx.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-hr",
+      "org": "怀柔区人民政府",
+      "site_name": "怀柔区政府门户",
+      "url": "http://www.bjhr.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-pg",
+      "org": "平谷区人民政府",
+      "site_name": "平谷区政府门户",
+      "url": "http://www.bjpg.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-my",
+      "org": "密云区人民政府",
+      "site_name": "密云区政府门户",
+      "url": "http://www.bjmy.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "bj-yq",
+      "org": "延庆区人民政府",
+      "site_name": "延庆区政府门户",
+      "url": "http://www.bjyq.gov.cn",
+      "level": "district",
+      "pilot": false,
+      "description": "本区城市更新、老旧小区改造、街区更新、房屋征收等区级政策与项目信息"
+    },
+    {
+      "id": "tj-zjw",
+      "org": "天津市住房城乡建设委员会",
+      "site_name": "天津市住建委官网",
+      "url": "http://zfcxjs.tj.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "he-zjw",
+      "org": "河北省住房和城乡建设厅",
+      "site_name": "河北省住建厅官网",
+      "url": "http://zfcxjst.hebei.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "ts-zjw",
+      "org": "唐山市住房和城乡建设局",
+      "site_name": "唐山市住建局官网",
+      "url": "https://zhujianju.tangshan.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；《唐山市城市更新实施办法》(唐政发〔2025〕4号) 发布与解读、城市更新项目信息"
+    },
+    {
+      "id": "sx-zjw",
+      "org": "山西省住房和城乡建设厅",
+      "site_name": "山西省住建厅官网",
+      "url": "http://zjt.shanxi.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "nm-zjw",
+      "org": "内蒙古自治区住房和城乡建设厅",
+      "site_name": "内蒙古住建厅官网",
+      "url": "http://zjt.nmg.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "hhht-zjw",
+      "org": "呼和浩特市住房和城乡建设局",
+      "site_name": "呼和浩特市住建局官网",
+      "url": "http://zfcxjsj.huhhot.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；《呼和浩特市城市更新实施办法（暂行）》及专项规划、项目信息"
+    },
+    {
+      "id": "ln-zjw",
+      "org": "辽宁省住房和城乡建设厅",
+      "site_name": "辽宁省住建厅官网",
+      "url": "http://zjt.ln.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "sy-zjw",
+      "org": "沈阳市城乡建设局",
+      "site_name": "沈阳市城乡建设局官网",
+      "url": "https://jw.shenyang.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新相关政策"
+    },
+    {
+      "id": "jl-zjw",
+      "org": "吉林省住房和城乡建设厅",
+      "site_name": "吉林省住建厅官网",
+      "url": "http://jst.jl.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "hlj-zjw",
+      "org": "黑龙江省住房和城乡建设厅",
+      "site_name": "黑龙江省住建厅官网",
+      "url": "http://zfcxjst.hlj.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "sh-portal",
+      "org": "上海市人民政府",
+      "site_name": "上海市政府门户",
+      "url": "https://www.shanghai.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "政策文件检索；《上海市城市更新条例》《上海市城市更新行动方案(2023—2025年)》"
+    },
+    {
+      "id": "sh-ghzyj",
+      "org": "市规划资源局",
+      "site_name": "上海市规划资源局官网",
+      "url": "https://ghzyj.sh.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "《上海市城市更新指引》《集中推进城市更新高质量发展的规划资源实施意见(2025版)》"
+    },
+    {
+      "id": "js-zjw",
+      "org": "江苏省住房和城乡建设厅",
+      "site_name": "江苏省住建厅官网",
+      "url": "http://jsszfhcxjst.jiangsu.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "《关于进一步支持城市更新行动的若干政策措施》；城市体检、老旧小区改造"
+    },
+    {
+      "id": "nj-zjw",
+      "org": "南京市城乡建设委员会",
+      "site_name": "南京市建委官网",
+      "url": "http://sjw.nanjing.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新专栏，《南京市城市更新办法》"
+    },
+    {
+      "id": "suz-zjw",
+      "org": "苏州市住房和城乡建设局",
+      "site_name": "苏州市住建局官网",
+      "url": "http://zfcjj.suzhou.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新相关政策"
+    },
+    {
+      "id": "zj-zjw",
+      "org": "浙江省住房和城乡建设厅",
+      "site_name": "浙江省住建厅官网",
+      "url": "http://jst.zj.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造、“好房子”建设等政策"
+    },
+    {
+      "id": "nb-zjw",
+      "org": "宁波市住房和城乡建设局",
+      "site_name": "宁波市住建局官网",
+      "url": "https://zjw.ningbo.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造相关政策与项目信息"
+    },
+    {
+      "id": "hz-zjw",
+      "org": "杭州市城乡建设委员会",
+      "site_name": "杭州市建委官网",
+      "url": "http://cxjw.hangzhou.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "设城市更新处、城市更新促进中心；《杭州市城市更新条例》、首轮三年行动"
+    },
+    {
+      "id": "ah-zjw",
+      "org": "安徽省住房和城乡建设厅",
+      "site_name": "安徽省住建厅官网",
+      "url": "http://dohurd.ah.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "cz-zjw",
+      "org": "滁州市住房和城乡建设局",
+      "site_name": "滁州市住建局官网",
+      "url": "https://zfcxjsj.chuzhou.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；《滁州市实施城市更新行动推动城市高质量发展实施方案》、城市生命线安全工程"
+    },
+    {
+      "id": "tl-zjw",
+      "org": "铜陵市住房和城乡建设局",
+      "site_name": "铜陵市住建局官网",
+      "url": "https://zfcxjsj.tl.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造相关政策与项目信息"
+    },
+    {
+      "id": "fj-zjw",
+      "org": "福建省住房和城乡建设厅",
+      "site_name": "福建省住建厅官网",
+      "url": "http://zjt.fujian.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "xm-zjw",
+      "org": "厦门市住房和建设局",
+      "site_name": "厦门市住建局官网",
+      "url": "https://szjj.xm.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造相关政策与项目信息"
+    },
+    {
+      "id": "jx-zjw",
+      "org": "江西省住房和城乡建设厅",
+      "site_name": "江西省住建厅官网",
+      "url": "http://zjt.jiangxi.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "nc-zjw",
+      "org": "南昌市住房和城乡建设局",
+      "site_name": "南昌市住建局官网",
+      "url": "https://zjj.nc.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新专栏汇总示范项目、城中村改造、完整社区建设政策"
+    },
+    {
+      "id": "nc-zjw-csgx",
+      "org": "南昌市住房和城乡建设局",
+      "site_name": "南昌市住建局·城市更新专栏",
+      "url": "https://zjj.nc.gov.cn/nczfbzglj/csgx",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；示范项目、城中村改造、完整社区建设政策"
+    },
+    {
+      "id": "jdz-zjw",
+      "org": "景德镇市住房和城乡建设局",
+      "site_name": "景德镇市住建局官网",
+      "url": "http://zjj.jdz.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新专项规划、老城保护与传统风貌更新政策"
+    },
+    {
+      "id": "sd-zjw",
+      "org": "山东省住房和城乡建设厅",
+      "site_name": "山东省住建厅官网",
+      "url": "http://zjt.shandong.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "yt-zjw",
+      "org": "烟台市住房和城乡建设局",
+      "site_name": "烟台市住建局官网",
+      "url": "https://zjj.yantai.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新相关政策、历史街区有机更新经验"
+    },
+    {
+      "id": "wf-zjw",
+      "org": "潍坊市住房和城乡建设局",
+      "site_name": "潍坊市住建局官网",
+      "url": "https://jsj.weifang.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造、海绵城市相关政策与项目信息"
+    },
+    {
+      "id": "hn-zjw",
+      "org": "河南省住房和城乡建设厅",
+      "site_name": "河南省住建厅官网",
+      "url": "https://hnjs.henan.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "hb-zjw",
+      "org": "湖北省住房和城乡建设厅",
+      "site_name": "湖北省住建厅官网",
+      "url": "http://zjt.hubei.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "hs-zjw",
+      "org": "黄石市住房和城市更新局",
+      "site_name": "黄石市住建局官网",
+      "url": "http://zjj.huangshi.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；机构更名“住房和城市更新局”，设城市更新专题，发布“十五五”规划、历史文化名城保护办法"
+    },
+    {
+      "id": "hun-zjw",
+      "org": "湖南省住房和城乡建设厅",
+      "site_name": "湖南省住建厅官网",
+      "url": "http://zjt.hunan.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "cs-zjw",
+      "org": "长沙市住房和城乡建设局",
+      "site_name": "长沙市住建局官网",
+      "url": "https://szjw.changsha.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、城中村改造相关政策"
+    },
+    {
+      "id": "gd-zjw",
+      "org": "广东省住房和城乡建设厅",
+      "site_name": "广东省住建厅官网",
+      "url": "http://zfcxjst.gd.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、城中村改造等政策；《广东省城市更新条例》"
+    },
+    {
+      "id": "gz-zjw",
+      "org": "广州市住房和城乡建设局",
+      "site_name": "广州市住建局官网",
+      "url": "https://zfcj.gz.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "城市更新专栏；《广州市城市更新条例》《广州市城市更新专项规划(2021—2035年)》"
+    },
+    {
+      "id": "gz-zjw-csgx",
+      "org": "广州市住房和城乡建设局",
+      "site_name": "广州市住建局·城市更新专栏",
+      "url": "https://zfcj.gz.gov.cn/zjyw/csgx",
+      "level": "city",
+      "pilot": false,
+      "description": "《广州市城市更新条例》《广州市城市更新专项规划(2021—2035年)》"
+    },
+    {
+      "id": "sz-zjj",
+      "org": "深圳市住房和建设局",
+      "site_name": "深圳市住建局官网",
+      "url": "https://zjj.sz.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "《关于规范城市更新实施工作的若干意见》(深建规〔2025〕4号)"
+    },
+    {
+      "id": "sz-pnr",
+      "org": "深圳市规划和自然资源局",
+      "site_name": "深圳市规自局官网",
+      "url": "https://pnr.sz.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "《进一步规范城市更新规划土地管理的若干措施(试行)》(深规划资源规〔2025〕5号)、城市更新“十四五”规划"
+    },
+    {
+      "id": "sz-portal",
+      "org": "深圳市人民政府",
+      "site_name": "深圳市政府门户",
+      "url": "https://www.sz.gov.cn",
+      "level": "city",
+      "pilot": false,
+      "description": "《深圳市国土空间总体规划(2021—2035年)》《深圳经济特区城市更新条例》等"
+    },
+    {
+      "id": "gx-zjw",
+      "org": "广西壮族自治区住房和城乡建设厅",
+      "site_name": "广西住建厅官网",
+      "url": "http://zjt.gxzf.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "hai-zjw",
+      "org": "海南省住房和城乡建设厅",
+      "site_name": "海南省住建厅官网",
+      "url": "http://zjt.hainan.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "cq-zjw",
+      "org": "重庆市住房和城乡建设委员会",
+      "site_name": "重庆市住建委官网",
+      "url": "https://zfcxjw.cq.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点（范围仅渝中区、九龙坡区）；城市更新管理办法与项目计划"
+    },
+    {
+      "id": "cq-yz",
+      "org": "渝中区人民政府",
+      "site_name": "渝中区政府门户",
+      "url": "https://www.cqyz.gov.cn",
+      "level": "district",
+      "pilot": true,
+      "description": "第一批试点区；区级城市更新、老旧小区改造、历史街区保护更新政策"
+    },
+    {
+      "id": "cq-jlp",
+      "org": "九龙坡区人民政府",
+      "site_name": "九龙坡区政府门户",
+      "url": "https://www.cqjlp.gov.cn",
+      "level": "district",
+      "pilot": true,
+      "description": "第一批试点区；区级城市更新、老旧小区改造、老旧工业区改造政策"
+    },
+    {
+      "id": "sc-zjw",
+      "org": "四川省住房和城乡建设厅",
+      "site_name": "四川省住建厅官网",
+      "url": "http://jst.sc.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "cd-zjw",
+      "org": "成都市住房和城乡建设局",
+      "site_name": "成都市住建局官网",
+      "url": "http://cdzj.chengdu.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造、城市体检相关政策与项目信息"
+    },
+    {
+      "id": "gz-zfcxjst",
+      "org": "贵州省住房和城乡建设厅",
+      "site_name": "贵州省住建厅官网",
+      "url": "http://zfcxjst.guizhou.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "yn-zjw",
+      "org": "云南省住房和城乡建设厅",
+      "site_name": "云南省住建厅官网",
+      "url": "https://zfcxjst.yn.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "xz-zjw",
+      "org": "西藏自治区住房和城乡建设厅",
+      "site_name": "西藏住建厅官网",
+      "url": "http://zjt.xizang.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "shx-zjw",
+      "org": "陕西省住房和城乡建设厅",
+      "site_name": "陕西省住建厅官网",
+      "url": "http://js.shaanxi.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "xa-zjw",
+      "org": "西安市住房和城乡建设局",
+      "site_name": "西安市住建局官网",
+      "url": "https://zjj.xa.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造相关政策"
+    },
+    {
+      "id": "gs-zjw",
+      "org": "甘肃省住房和城乡建设厅",
+      "site_name": "甘肃省住建厅官网",
+      "url": "https://zjt.gansu.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "qh-zjw",
+      "org": "青海省住房和城乡建设厅",
+      "site_name": "青海省住建厅官网",
+      "url": "http://zjt.qinghai.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "nx-zjw",
+      "org": "宁夏回族自治区住房和城乡建设厅",
+      "site_name": "宁夏住建厅官网",
+      "url": "http://jst.nx.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "yc-zjw",
+      "org": "银川市住房和城乡建设局",
+      "site_name": "银川市住建局官网",
+      "url": "https://zjj.yinchuan.gov.cn",
+      "level": "city",
+      "pilot": true,
+      "description": "第一批试点；城市更新、老旧小区改造相关政策与项目信息"
+    },
+    {
+      "id": "xj-zjw",
+      "org": "新疆维吾尔自治区住房和城乡建设厅",
+      "site_name": "新疆住建厅官网",
+      "url": "https://zjt.xinjiang.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "省级城市更新、老旧小区改造等政策与项目信息"
+    },
+    {
+      "id": "xjbt-zjw",
+      "org": "新疆生产建设兵团住房和城乡建设局",
+      "site_name": "兵团住建局官网",
+      "url": "http://jshbj.xjbt.gov.cn",
+      "level": "provincial",
+      "pilot": false,
+      "description": "兵团城市更新、老旧小区改造相关政策与项目信息"
+    },
+    {
+      "id": "cdb",
+      "org": "国家开发银行",
+      "site_name": "国家开发银行官网",
+      "url": "https://www.cdb.cn",
+      "level": "finance",
+      "pilot": false,
+      "description": "城市更新专项贷款等政策性金融支持；2025年城市更新领域投放约7863亿元"
+    },
+    {
+      "id": "cpppc",
+      "org": "财政部政府和社会资本合作中心",
+      "site_name": "财政部PPP中心官网",
+      "url": "https://www.cpppc.org",
+      "level": "finance",
+      "pilot": false,
+      "description": "PPP项目库与城市更新相关PPP项目信息发布；城市更新项目投融资参考"
+    },
+    {
+      "id": "adbc",
+      "org": "中国农业发展银行",
+      "site_name": "中国农业发展银行官网",
+      "url": "https://www.adbc.com.cn",
+      "level": "finance",
+      "pilot": false,
+      "description": "政策性银行；与国开行并列长期低息贷款支持城市更新/“三大工程”（保障性住房、城中村改造、“平急两用”公共基础设施）"
+    }
+  ],
+  "documents": [
+    {
+      "id": "n-155-guihua",
+      "title": "《城市更新“十五五”规划》",
+      "doc_number": "国发〔2026〕12号",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "govcn",
+      "keywords": [
+        "城市更新",
+        "十五五",
+        "规划",
+        "更新"
+      ],
+      "note": "国务院发布"
+    },
+    {
+      "id": "n-shishi-yijian",
+      "title": "持续推进城市更新行动的意见",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "govcn",
+      "keywords": [
+        "城市更新",
+        "行动",
+        "意见"
+      ],
+      "note": "全称与发文号待人工核验"
+    },
+    {
+      "id": "n-fangzhi-dachaidajian",
+      "title": "防止大拆大建通知",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mohurd",
+      "keywords": [
+        "大拆大建",
+        "城市更新"
+      ],
+      "note": "住建部发布，全称与发文号待人工核验"
+    },
+    {
+      "id": "n-dian-shidian-1",
+      "title": "第一批城市更新试点城市名单",
+      "doc_number": "建办科函〔2021〕443号",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mohurd",
+      "keywords": [
+        "试点",
+        "名单",
+        "城市更新"
+      ],
+      "note": "第一批试点城市/部门共 24 处"
+    },
+    {
+      "id": "n-dian-shidian-2",
+      "title": "第二批城市更新试点城市名单",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mohurd",
+      "keywords": [
+        "试点",
+        "名单",
+        "城市更新"
+      ],
+      "note": "发文号待人工核验"
+    },
+    {
+      "id": "n-jingyan-qingdan",
+      "title": "城市更新可复制经验做法清单",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mohurd",
+      "keywords": [
+        "经验",
+        "做法",
+        "清单"
+      ],
+      "note": "分批次发布"
+    },
+    {
+      "id": "n-caizheng-zhichi",
+      "title": "中央财政支持城市更新行动联合通知",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mohurd",
+      "keywords": [
+        "中央财政",
+        "支持",
+        "城市更新"
+      ],
+      "note": "住建部与财政部联合发布，全称与发文号待人工核验"
+    },
+    {
+      "id": "n-tudi-zhidao-2023",
+      "title": "支持城市更新的规划与土地政策指引（2023版）",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mnr",
+      "keywords": [
+        "规划",
+        "土地",
+        "指引"
+      ],
+      "note": "自然资源部发布"
+    },
+    {
+      "id": "n-zrzfb-2025-226",
+      "title": "关于进一步支持城市更新行动若干措施的通知",
+      "doc_number": "自然资发〔2025〕226号",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mnr",
+      "keywords": [
+        "城市更新",
+        "措施",
+        "支持"
+      ],
+      "note": "自然资源部发布"
+    },
+    {
+      "id": "n-czb-2026-14",
+      "title": "关于开展2026年度中央财政支持实施城市更新行动的通知",
+      "doc_number": "财办建〔2026〕14号",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "mof",
+      "keywords": [
+        "中央财政",
+        "2026",
+        "城市更新"
+      ],
+      "note": "财政部办公厅发布"
+    },
+    {
+      "id": "bj-csgx-tiaoli",
+      "title": "北京市城市更新条例",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-portal",
+      "keywords": [
+        "北京",
+        "城市更新",
+        "条例"
+      ],
+      "note": "生效日期待人工核验"
+    },
+    {
+      "id": "bj-csgx-gongjuxiang",
+      "title": "关于印发《北京市城市更新政策激励工具箱（1.0版）》的通知",
+      "doc_number": "",
+      "effective_date": "2026-01-01",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-portal",
+      "keywords": [
+        "北京",
+        "工具箱",
+        "激励",
+        "容积率",
+        "奖励"
+      ],
+      "note": "发布日期 2026-01-01（据网址清单）；全称以原文为准"
+    },
+    {
+      "id": "bj-jianzhu-guimo",
+      "title": "深化建筑规模管理激励城市更新的管理规定",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-ghzrzyw",
+      "keywords": [
+        "北京",
+        "建筑规模",
+        "容积率",
+        "激励"
+      ],
+      "note": "发文号待人工核验"
+    },
+    {
+      "id": "bj-guihua-tiaoli",
+      "title": "北京市城乡规划条例",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "",
+      "keywords": [
+        "北京",
+        "规划",
+        "条例"
+      ],
+      "note": "PRD 附录B参考文件，发布渠道待补充"
+    },
+    {
+      "id": "bj-xingdong-jihua",
+      "title": "北京市城市更新行动计划",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-portal",
+      "keywords": [
+        "北京",
+        "行动",
+        "计划"
+      ],
+      "note": "全称与发文号待人工核验"
+    },
+    {
+      "id": "bj-zhuanti-guihua",
+      "title": "北京市城市更新专项规划",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-portal",
+      "keywords": [
+        "北京",
+        "专项规划"
+      ],
+      "note": "名称与发文号待人工核验"
+    },
+    {
+      "id": "bj-xiangmu-ku",
+      "title": "城市更新项目库管理办法",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-zjw",
+      "keywords": [
+        "北京",
+        "项目库",
+        "管理"
+      ],
+      "note": "名称待人工核验"
+    },
+    {
+      "id": "bj-shijian-ditu",
+      "title": "城市更新最佳实践项目地图",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "bj-portal",
+      "keywords": [
+        "北京",
+        "实践",
+        "地图"
+      ],
+      "note": "工具类产品，非正式文件"
+    },
+    {
+      "id": "scio-jiedu-155",
+      "title": "《城市更新“十五五”规划》政策例行吹风会解读",
+      "doc_number": "",
+      "effective_date": "",
+      "status": "待核验",
+      "official_url": "",
+      "channel_id": "scio",
+      "keywords": [
+        "解读",
+        "十五五",
+        "城市更新"
+      ],
+      "note": "解读材料，非正式文件"
+    }
+  ]
+}
