@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "rules": [
+    {
+      "id": "s-far-city",
+      "indicator": "容积率",
+      "level": "city",
+      "source_doc_id": "bj-jianzhu-guimo",
+      "clause": "测试样例·第X条",
+      "clause_text": "【测试样例，非真实条款】老旧小区改造地块容积率不得超过 3.0",
+      "comparison": "le",
+      "value": 3.0,
+      "applies_to": {
+        "更新类型": "老旧小区改造"
+      },
+      "mandatory": true,
+      "note": "测试样例"
+    },
+    {
+      "id": "s-far-national",
+      "indicator": "容积率",
+      "level": "national",
+      "source_doc_id": "n-tudi-zhidao-2023",
+      "clause": "测试样例·第Y条",
+      "clause_text": "【测试样例，非真实条款】国家层面容积率指导上限 3.5",
+      "comparison": "le",
+      "value": 3.5,
+      "applies_to": {
+        "更新类型": "老旧小区改造"
+      },
+      "mandatory": true,
+      "note": "测试样例；与市级 3.0 构成多层级差异，用于演示从严建议"
+    },
+    {
+      "id": "s-green-city",
+      "indicator": "绿地率",
+      "level": "city",
+      "source_doc_id": "bj-guihua-tiaoli",
+      "clause": "测试样例·第Z条",
+      "clause_text": "【测试样例，非真实条款】绿地率不得低于 0.30",
+      "comparison": "ge",
+      "value": 0.3,
+      "applies_to": {
+        "更新类型": "老旧小区改造"
+      },
+      "mandatory": true,
+      "note": "测试样例"
+    },
+    {
+      "id": "s-density-city",
+      "indicator": "建筑密度",
+      "level": "city",
+      "source_doc_id": "bj-guihua-tiaoli",
+      "clause": "测试样例·第W条",
+      "clause_text": "【测试样例，非真实条款】建筑密度不得超过 0.30",
+      "comparison": "le",
+      "value": 0.3,
+      "applies_to": {
+        "更新类型": "老旧小区改造"
+      },
+      "mandatory": true,
+      "note": "测试样例"
+    }
+  ]
+}
