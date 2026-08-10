@@ -91,7 +91,7 @@ def test_cli_entry_point_generates_library(tmp_path):
     root = Path(__file__).resolve().parent.parent
     proc = subprocess.run(
         [sys.executable, "-m", "sourcelib", "--out-dir", str(tmp_path)],
-        capture_output=True, text=True, cwd=root, timeout=60,
+        capture_output=True, text=True, encoding="utf-8", cwd=root, timeout=60,
     )
     assert proc.returncode == 0, proc.stderr
     library = load_library(tmp_path / "library.json")

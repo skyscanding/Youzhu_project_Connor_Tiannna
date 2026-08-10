@@ -103,7 +103,7 @@ def test_cli_init_and_validate(tmp_path, library):
     out = tmp_path / "rules"
     proc = subprocess.run(
         [sys.executable, "-m", "compliance", "--init", "--rules-dir", str(out)],
-        capture_output=True, text=True, cwd=PROJECT_ROOT, timeout=60,
+        capture_output=True, text=True, encoding="utf-8", cwd=PROJECT_ROOT, timeout=60,
     )
     assert proc.returncode == 0, proc.stderr
     rules_path = out / "rules.json"
@@ -112,6 +112,6 @@ def test_cli_init_and_validate(tmp_path, library):
 
     proc2 = subprocess.run(
         [sys.executable, "-m", "compliance", "--validate", "--rules-dir", str(out)],
-        capture_output=True, text=True, cwd=PROJECT_ROOT, timeout=60,
+        capture_output=True, text=True, encoding="utf-8", cwd=PROJECT_ROOT, timeout=60,
     )
     assert proc2.returncode == 0, proc2.stderr

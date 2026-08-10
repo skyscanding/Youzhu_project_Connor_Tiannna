@@ -1,5 +1,6 @@
 """CLI 集成测试：mock 抓取函数，验证 抓取→快照→对比→报告 全流程。"""
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -150,9 +151,28 @@ def test_cli_entry_point_list_sources():
         [sys.executable, "-m", "crawler", "--list-sources"],
         capture_output=True,
         text=True,
+        encoding="utf-8",  # CLI 强制 UTF-8 输出，parent 侧同样按 UTF-8 解码（不依赖控制台 locale）
         cwd=ROOT,
         timeout=60,
     )
-    assert proc.returncode == 0
+    assert proc.returncode == 0, proc.stderr
     assert "govcn" in proc.stdout
     assert "bj-yq" in proc.stdout
+
+
+def test_cli_entry_point_survives_non_utf8_console():
+    """回归：即便子进程控制台按 cp1252 编码，中文输出也不得触发 UnicodeEncodeError。
+
+    强制 PYTHONIOENCODING=cp1252 + PYTHONUTF8=0 复现 Windows 默认代码页环境，
+    使该保证在任意机器上确定成立，而非仅当开发者本机恰为 cp1252 时。
+    """
+    env = {**os.environ, "PYTHONIOENCODING": "cp1252", "PYTHONUTF8": "0"}
+    proc = subprocess.run(
+        [sys.executable, "-m", "crawler", "--list-sources"],
+        capture_output=True, text=True, encoding="utf-8",
+        cwd=ROOT, timeout=60, env=env,
+    )
+    assert proc.returncode == 0, proc.stderr
+    assert "govcn" in proc.stdout
+    # 中文经 UTF-8 往返未损坏（存在 CJK 字符）
+    assert any("一" <= c <= "鿿" for c in proc.stdout)

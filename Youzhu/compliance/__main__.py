@@ -11,6 +11,18 @@ DEFAULT_RULES_DIR = PROJECT_ROOT / "data" / "rules"
 LIBRARY_PATH = PROJECT_ROOT / "data" / "sourcelib" / "library.json"
 
 
+def _force_utf8_stdio() -> None:
+    """确保在非 UTF-8 控制台（Windows cp1252/cp936 等）下也能输出中文，避免 UnicodeEncodeError。"""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(encoding="utf-8")
+        except (ValueError, OSError):
+            pass
+
+
 def _library():
     return load_library(LIBRARY_PATH)
 
@@ -38,6 +50,7 @@ if __name__ == "__main__":
     parser.add_argument("--rules-dir", default=str(DEFAULT_RULES_DIR), help=f"规则库目录（默认 {DEFAULT_RULES_DIR}）")
     args = parser.parse_args()
 
+    _force_utf8_stdio()
     rules_dir = Path(args.rules_dir)
     if args.init:
         init_rules(rules_dir)
