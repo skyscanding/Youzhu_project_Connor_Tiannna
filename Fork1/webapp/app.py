@@ -17,6 +17,49 @@ from webapp import services
 
 st.set_page_config(page_title="城市更新合规参谋 Agent", page_icon="🏙️", layout="wide")
 
+
+def _inject_claude_theme() -> None:
+    """注入 Claude 风格样式：暖纸背景、珊瑚强调色、衬线标题、圆角卡片。"""
+    st.markdown(
+        """
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500;600&display=swap');
+        .stApp { background:#FAF9F5; }
+        .block-container { max-width:1080px; padding-top:2.4rem; }
+        html, body, [class*="css"], .stMarkdown, input, textarea, button {
+            font-family:'Inter',-apple-system,"Segoe UI","Helvetica Neue",sans-serif;
+        }
+        h1, h2, h3 { font-family:'Lora',Georgia,"Times New Roman",serif; color:#1F1E1D; letter-spacing:-0.01em; }
+        h1 { font-weight:600; }
+        h1::before { content:"✳ "; color:#D97757; font-family:'Inter',sans-serif; }
+        /* 主按钮：珊瑚 */
+        .stButton button, [data-testid="stBaseButton-primary"] {
+            background:#D97757 !important; color:#fff !important; border:none !important;
+            border-radius:10px !important; padding:0.5rem 1.15rem !important; font-weight:600 !important;
+            box-shadow:0 1px 2px rgba(0,0,0,0.06); transition:background .15s ease;
+        }
+        .stButton button:hover, [data-testid="stBaseButton-primary"]:hover { background:#C15F3C !important; }
+        /* 圆角卡片 */
+        [data-testid="stVerticalBlockBorderWrapper"] {
+            border:1px solid #E7E3D8 !important; border-radius:14px !important;
+            background:#FFFFFF; box-shadow:0 1px 3px rgba(30,30,29,0.04);
+        }
+        [data-testid="stTextInput"] input, [data-testid="stNumberInput"] input {
+            border-radius:10px; border:1px solid #E2DED2; background:#FFFDF8;
+        }
+        /* 页签强调色 */
+        .stTabs [data-baseweb="tab-list"] { gap:0.4rem; border-bottom:1px solid #EBE7DC; }
+        .stTabs [aria-selected="true"] { color:#C15F3C !important; }
+        .stTabs [data-baseweb="tab-highlight"], .stTabs [data-baseweb="tab-border"] { background:#D97757 !important; }
+        [data-testid="stAlert"] { border-radius:12px; }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+_inject_claude_theme()
+
 LEVEL_UI = {"safe": ("✅ 安全", st.success), "warn": ("⚠️ 警示", st.warning), "danger": ("⛔ 危险", st.error)}
 STATUS_UI = {"allowed": ("✅ 合规", st.success), "not_allowed": ("⛔ 不合规", st.error), "unknown": ("❓ 无法判断", st.info)}
 _OP = {"le": "≤", "ge": "≥", "eq": "="}

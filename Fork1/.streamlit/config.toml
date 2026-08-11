@@ -1,0 +1,13 @@
+# Claude 风格主题（Anthropic 暖色纸感 + 珊瑚/黏土强调色）
+[theme]
+base = "light"
+primaryColor = "#D97757"            # Claude clay/coral
+backgroundColor = "#FAF9F5"          # warm paper
+secondaryBackgroundColor = "#F0EEE6" # cream cards/sidebar
+textColor = "#2B2A28"                # warm near-black
+
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true
