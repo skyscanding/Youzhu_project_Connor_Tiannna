@@ -23,15 +23,15 @@ def _inject_claude_theme() -> None:
     st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500;600&display=swap');
+        /* 纯系统字体栈：不拉取外网字体，避免本机经代理访问 googleapis 阻塞首屏渲染 */
         .stApp { background:#FAF9F5; }
         .block-container { max-width:1080px; padding-top:2.4rem; }
         html, body, [class*="css"], .stMarkdown, input, textarea, button {
-            font-family:'Inter',-apple-system,"Segoe UI","Helvetica Neue",sans-serif;
+            font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
         }
-        h1, h2, h3 { font-family:'Lora',Georgia,"Times New Roman",serif; color:#1F1E1D; letter-spacing:-0.01em; }
+        h1, h2, h3 { font-family:Georgia,"Times New Roman","Songti SC",serif; color:#1F1E1D; letter-spacing:-0.01em; }
         h1 { font-weight:600; }
-        h1::before { content:"✳ "; color:#D97757; font-family:'Inter',sans-serif; }
+        h1::before { content:"✳ "; color:#D97757; font-family:sans-serif; }
         /* 主按钮：珊瑚 */
         .stButton button, [data-testid="stBaseButton-primary"] {
             background:#D97757 !important; color:#fff !important; border:none !important;
