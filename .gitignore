@@ -5,6 +5,13 @@
 Requesttest/data/
 *.log
 
+# ── 例外：用户要求上传爬虫自动扒取的数据（知识库一部分） ──
+!Requesttest/data/
+!Requesttest/data/snapshot/
+!Requesttest/data/snapshot/**
+!Requesttest/data/reports/
+!Requesttest/data/reports/**
+
 # ── Python 缓存 ───────────────────────────────────────────
 __pycache__/
 *.py[cod]

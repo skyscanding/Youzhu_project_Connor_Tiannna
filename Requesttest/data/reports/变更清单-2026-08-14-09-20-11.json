@@ -1,0 +1,2285 @@
+{
+  "run_at": "2026-08-14T09:20:11+08:00",
+  "summary": {
+    "sources_total": 90,
+    "sources_ok": 81,
+    "sources_failed": 9,
+    "records_found": 122,
+    "added": 122,
+    "updated": 0,
+    "vanished": 0
+  },
+  "sources": [
+    {
+      "id": "govcn",
+      "name": "国务院政策文件库",
+      "level": "national",
+      "url": "https://www.gov.cn/zhengce/zhengceku/",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://www.gov.cn/zhengce/zhengceku/ 失败（尝试 2 次）：403 Client Error: Forbidden for url: https://www.gov.cn/zhengce/zhengceku/"
+    },
+    {
+      "id": "mohurd",
+      "name": "住房城乡建设部",
+      "level": "national",
+      "url": "https://www.mohurd.gov.cn",
+      "status": "ok",
+      "records_found": 3,
+      "changes": {
+        "added": [
+          {
+            "title": "国务院政策例行吹风会：《城市更新“十五五”规划》有关情况",
+            "url": "https://www.mohurd.gov.cn/xinwen/jsyw/art/2026/art_41a4475aa5b0477aa829bb8144104792.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "“践行人民城市理念　高质量推进城市更新工作”座谈会在上海召开",
+            "url": "https://www.mohurd.gov.cn/xinwen/jsyw/art/2026/art_b48c06eb8b2047df816646e17cbd3580.html",
+            "date": "2026-07-23",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "打造高品质生活空间——扎实推进城市更新（上）",
+            "url": "https://www.mohurd.gov.cn/xinwen/gzdt/art/2026/art_b304290b638a48dfad929a4892c062ee.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "mnr",
+      "name": "自然资源部",
+      "level": "national",
+      "url": "https://www.mnr.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "mof",
+      "name": "财政部",
+      "level": "national",
+      "url": "https://www.mof.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "mof-bgt",
+      "name": "财政部办公厅",
+      "level": "national",
+      "url": "https://bgt.mof.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "ndrc",
+      "name": "国家发展改革委",
+      "level": "national",
+      "url": "https://www.ndrc.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "ndrc-tzxm",
+      "name": "国家投资项目在线审批监管平台",
+      "level": "national",
+      "url": "https://www.tzxm.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "scio",
+      "name": "国务院新闻办",
+      "level": "national",
+      "url": "https://www.scio.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://www.scio.gov.cn 失败（尝试 2 次）：HTTPSConnectionPool(host='www.scio.gov.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)')))"
+    },
+    {
+      "id": "bj-portal",
+      "name": "首都之窗·北京城市更新专栏",
+      "level": "city",
+      "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/index.html",
+      "status": "ok",
+      "records_found": 15,
+      "changes": {
+        "added": [
+          {
+            "title": "国务院关于印发《城市更新  “十五五”规划》的通知",
+            "url": "https://www.gov.cn/zhengce/content/202605/content_7070539.htm",
+            "date": "2026-05",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "中共中央办公厅 国务院办公厅  关于持续推进城市更新行动的意见",
+            "url": "https://www.gov.cn/gongbao/2025/issue_12066/202505/content_7025479.html",
+            "date": "2025-05",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住房和城乡建设部办公厅关于在城市更新改造中切实加强历史文化保护坚决制止破坏行为的通知",
+            "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2020/art_17339_246832.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住房和城乡建设部关于在实施城市更新行动中防止大拆大建问题的通知",
+            "url": "https://www.gov.cn/zhengce/zhengceku/2021-08/31/content_5634560.htm",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住房和城乡建设部办公厅关于印发实施城市更新行动可复制经验做法清单（第一批）的通知",
+            "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2024/art_17339_769183.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住房和城乡建设部办公厅关于开展第一批城市更新试点工作的通知",
+            "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762839.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住房城乡建设部办公厅关于印发实施城市更新行动可复制经验做法清单（第二批）的通知",
+            "url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2023/art_17339_775025.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市城市更新条例",
+            "url": "https://www.beijing.gov.cn/zhengce/dfxfg/202212/t20221206_2871600.html",
+            "date": "2022-12-06",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市城市更新行动计划（2021-2025年）",
+            "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202108/t20210831_2480185.html",
+            "date": "2021-08-31",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市城市更新专项规划（北京市“十四五”时期城市更新规划）",
+            "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202205/t20220518_2715630.html",
+            "date": "2022-05-18",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "关于发布《北京市城市更新政策激励工具箱 （1.0版）》的通知",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/743895417/index.shtml",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市规划和自然资源委员会 北京市住房和城乡建设委员会关于印发《关于深化建筑规模管理激励城市更新的管理规定（试行）》的通知",
+            "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/zcwj/qtwj/202605/t20260526_4666378.html",
+            "date": "2026-05-26",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市规划和自然资源委员会 北京市住房和城乡建设委员会关于印发《北京市城市更新范围内无手续建筑认定处理指导意见（试行）》的通知",
+            "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202601/t20260108_4411281.html",
+            "date": "2026-01-08",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "关于城市更新过程中对国有土地上私有房屋实施房屋征收有关事项的通知",
+            "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202409/t20240926_3907261.html",
+            "date": "2024-09-26",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "经开区地铁万源街站点周边片区城市更新项目",
+            "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/zjshj/zjshj/202509/t20250911_4199707.html",
+            "date": "2025-09-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-zjw",
+      "name": "市住房城乡建设委",
+      "level": "city",
+      "url": "https://zjw.beijing.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "城市更新",
+            "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/index.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-zjw-csgx",
+      "name": "市住建委·城市更新主题分类",
+      "level": "city",
+      "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/aztfl64/csgx/index.shtml",
+      "status": "ok",
+      "records_found": 8,
+      "changes": {
+        "added": [
+          {
+            "title": "关于发布《北京市城市更新政策激励工具箱 （1.0版）》的通知",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/743895417/index.shtml",
+            "date": "2026-01-01",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会等5部门 印发《关于优化本市城市更新项目审批服务推动并联办理...",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/743770327/index.shtml",
+            "date": "2024-10-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会 北京市规划和自然资源委员会 关于印发《北京市城市更新实施单...",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/743770254/index.shtml",
+            "date": "2024-09-09",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会关于印发《北京市城市更新实施方案编制工作指南（试行）》的通...",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/qtzcwj/xxyx13/743667581/index.shtml",
+            "date": "2024-05-23",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会关于印发《北京市城市更新实施单元统筹主体确定管理办法（试行...",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/gfxwj40/xxyx/436456282/index.shtml",
+            "date": "2024-04-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会关于印发《北京市城市更新项目库管理办法（试行）》的通知",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/gfxwj40/xxyx/436456233/index.shtml",
+            "date": "2024-04-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北京市住房和城乡建设委员会关于印发《北京市城市更新专家委员会管理办法（试行）》的通知",
+            "url": "https://zjw.beijing.gov.cn/bjjs/xxgk/zcwj2024/gfxwj40/xxyx/436456213/index.shtml",
+            "date": "2024-04-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新",
+            "url": "https://www.beijing.gov.cn/fuwu/lqfw/ztzl/bjchshgx/index.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-ghzrzyw",
+      "name": "市规划自然资源委",
+      "level": "city",
+      "url": "https://ghzrzyw.beijing.gov.cn",
+      "status": "ok",
+      "records_found": 2,
+      "changes": {
+        "added": [
+          {
+            "title": "一图读懂｜《北京市深化与城市更新相适应的街区控规管理改革实施意见》",
+            "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/2024zcjd/202607/t20260728_4794683.html",
+            "date": "2026-07-28",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "权威解读｜《北京市深化与城市更新相适应的街区控规管理改革实施意见》",
+            "url": "https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/2024zcjd/202607/t20260728_4794670.html",
+            "date": "2026-07-28",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-dc",
+      "name": "东城区人民政府",
+      "level": "district",
+      "url": "http://www.bjdch.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-xc",
+      "name": "西城区人民政府",
+      "level": "district",
+      "url": "http://www.bjxch.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-cy",
+      "name": "朝阳区人民政府",
+      "level": "district",
+      "url": "http://www.bjchy.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-hd",
+      "name": "海淀区人民政府",
+      "level": "district",
+      "url": "https://www.bjhd.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-ft",
+      "name": "丰台区人民政府",
+      "level": "district",
+      "url": "http://www.bjft.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "《您说我办》——走进和义东里老旧小区改造",
+            "url": "http://www.bjft.gov.cn/hdjl/zxft/202607/t20260707_218285.shtml",
+            "date": "2026-07-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-sjs",
+      "name": "石景山区人民政府",
+      "level": "district",
+      "url": "http://www.bjsjs.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-mtg",
+      "name": "门头沟区人民政府",
+      "level": "district",
+      "url": "http://www.bjmtg.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-fs",
+      "name": "房山区人民政府",
+      "level": "district",
+      "url": "http://www.bjfsh.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-tz",
+      "name": "通州区人民政府",
+      "level": "district",
+      "url": "http://www.bjtzh.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-sy",
+      "name": "顺义区人民政府",
+      "level": "district",
+      "url": "https://www.bjshy.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-cp",
+      "name": "昌平区人民政府",
+      "level": "district",
+      "url": "http://www.bjchp.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-dx",
+      "name": "大兴区人民政府",
+      "level": "district",
+      "url": "http://www.bjdx.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-hr",
+      "name": "怀柔区人民政府",
+      "level": "district",
+      "url": "http://www.bjhr.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-pg",
+      "name": "平谷区人民政府",
+      "level": "district",
+      "url": "http://www.bjpg.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-my",
+      "name": "密云区人民政府",
+      "level": "district",
+      "url": "http://www.bjmy.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "bj-yq",
+      "name": "延庆区人民政府",
+      "level": "district",
+      "url": "http://www.bjyq.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "tj-zjw",
+      "name": "天津市住房城乡建设委员会",
+      "level": "city",
+      "url": "http://zfcxjs.tj.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "he-zjw",
+      "name": "河北省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zfcxjst.hebei.gov.cn",
+      "status": "ok",
+      "records_found": 3,
+      "changes": {
+        "added": [
+          {
+            "title": "城市更新绘就宜居新图景",
+            "url": "http://zfcxjst.hebei.gov.cn/hbzjt/xwzx/lbt/101769767048935.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "我省组织召开城市更新政银企座谈对接会",
+            "url": "http://zfcxjst.hebei.gov.cn/hbzjt/xwzx/jsyw/101783042034001.html",
+            "date": "2026-07-20",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "我省因地制宜探索可持续城市更新模式  以空间之“新”承载...",
+            "url": "http://zfcxjst.hebei.gov.cn/hbzjt/xwzx/mtgz/101783042033543.html",
+            "date": "2026-07-19",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "ts-zjw",
+      "name": "唐山市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zhujianju.tangshan.gov.cn",
+      "status": "ok",
+      "records_found": 6,
+      "changes": {
+        "added": [
+          {
+            "title": "我省组织召开城市更新政银企座谈对接会",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/gzdt/20260723/1651806.html",
+            "date": "2026-07-23",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "国务院印发《城市更新“十五五”规划》",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/gzdt/20260603/1649885.html",
+            "date": "2026-06-03",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "五年实践，唐山城市更新成为全国样本",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/gzdt/20260506/1648637.html",
+            "date": "2026-05-06",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "唐山市人民政府关于印发《唐山市城市更新实施办法》的通知",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/ts_zhujianjuzcwjpc/20251120/1641104.html",
+            "date": "2025-11-20",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "唐山市召开城镇老旧小区改造工程成果新闻发布会",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/zjjzhengwufangtan/20250113/1624113.html",
+            "date": "2025-01-13",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "唐山市召开棚户区改造工程成果新闻发布会",
+            "url": "https://zhujianju.tangshan.gov.cn/tszjj/zjjzhengwufangtan/20250113/1624112.html",
+            "date": "2025-01-13",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sx-zjw",
+      "name": "山西省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.shanxi.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "因地制宜、先保基本，扎实推进城市更新行动",
+            "url": "http://zjt.shanxi.gov.cn/jsdt/202607/t20260707_10172201.shtml",
+            "date": "2026-07-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nm-zjw",
+      "name": "内蒙古自治区住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.nmg.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hhht-zjw",
+      "name": "呼和浩特市住房和城乡建设局",
+      "level": "city",
+      "url": "http://zfcxjsj.huhhot.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "ln-zjw",
+      "name": "辽宁省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.ln.gov.cn",
+      "status": "ok",
+      "records_found": 3,
+      "changes": {
+        "added": [
+          {
+            "title": "建设城市更新先导区专栏",
+            "url": "http://zjt.ln.gov.cn/zjt/ztzl10/jscsgxxdqzl/index.shtml",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "大连市高质量推进城市更新行动专题培训班开班",
+            "url": "http://zjt.ln.gov.cn/zjt/jsyw/2026042316281188095/index.shtml",
+            "date": "2026-04-23",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "人民日报头版：辽宁因地制宜高质量推进城市更新",
+            "url": "http://zjt.ln.gov.cn/zjt/jsyw/2026032616110526349/index.shtml",
+            "date": "2026-03-23",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sy-zjw",
+      "name": "沈阳市城乡建设局",
+      "level": "city",
+      "url": "https://jw.shenyang.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "专家解读·城市更新｜边兰春：有序推进完整社区建设，营造高品质城市生...",
+            "url": "https://jw.shenyang.gov.cn/xwzx/202606/t20260622_5044463.html",
+            "date": "2026-06-22",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "jl-zjw",
+      "name": "吉林省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://jst.jl.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "全省城镇老旧小区改造 投诉举报电话",
+            "url": "http://jst.jl.gov.cn/kzgn/jsdt/202406/t20240614_3205251.html",
+            "date": "2024-06-14",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hlj-zjw",
+      "name": "黑龙江省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zfcxjst.hlj.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "黑龙江省举办提升城市更新工作能力专题研讨班",
+            "url": "http://zfcxjst.hlj.gov.cn/zfcxjst/c114759/202607/c00_31958607.shtml",
+            "date": "2026-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sh-portal",
+      "name": "上海市人民政府",
+      "level": "city",
+      "url": "https://www.shanghai.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sh-ghzyj",
+      "name": "市规划资源局",
+      "level": "city",
+      "url": "https://ghzyj.sh.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "上海城市更新",
+            "url": "https://csgx.zjw.sh.gov.cn:10811/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "js-zjw",
+      "name": "江苏省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://jsszfhcxjst.jiangsu.gov.cn",
+      "status": "ok",
+      "records_found": 3,
+      "changes": {
+        "added": [
+          {
+            "title": "江苏2025年“住有所居”民生实事圆满收官！老旧小区改造、住房保障任务超额完成",
+            "url": "http://jsszfhcxjst.jiangsu.gov.cn/art/2025/12/29/art_8637_11702180.html",
+            "date": "2025-12-29",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "住建部科技司赴江苏开展城市更新工作专题调研",
+            "url": "http://jsszfhcxjst.jiangsu.gov.cn/art/2026/7/24/art_8637_11808331.html",
+            "date": "2026-07-24",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "《关于进一步支持城市更新行动的若干政策措施》新闻发布会",
+            "url": "https://www.jiangsu.gov.cn/art/2026/5/21/art_46548_339.html",
+            "date": "2026-05-21",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nj-zjw",
+      "name": "南京市城乡建设委员会",
+      "level": "city",
+      "url": "http://sjw.nanjing.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "suz-zjw",
+      "name": "苏州市住房和城乡建设局",
+      "level": "city",
+      "url": "http://zfcjj.suzhou.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "市住建局牵头的城中村改造、城镇老...",
+            "url": "http://zfcjj.suzhou.gov.cn/szszjj/zxft/202512/9d1f951078154b85b60a87b76eb8783d.shtml",
+            "date": "2025-12",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "zj-zjw",
+      "name": "浙江省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://jst.zj.gov.cn",
+      "status": "ok",
+      "records_found": 2,
+      "changes": {
+        "added": [
+          {
+            "title": "2026年全省城市更新工作培训班在杭州举行",
+            "url": "http://jst.zj.gov.cn/col/col1569971/art/2026/art_80c66a837fa1435c80769752cc908447.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "省建设厅 省自然资源厅《关于进一步支持城市更新行动若干措施的...",
+            "url": "http://jst.zj.gov.cn/api-gateway/jpaas-jsurvey-web-server/front/dczj/showJsurveys.do?formId=a8bec77fb1724c238f9528cd8be1b803",
+            "date": "2026-07-16",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nb-zjw",
+      "name": "宁波市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zjw.ningbo.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hz-zjw",
+      "name": "杭州市城乡建设委员会",
+      "level": "city",
+      "url": "http://cxjw.hangzhou.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "ah-zjw",
+      "name": "安徽省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://dohurd.ah.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "关于公开征求《安徽省城市更新条例（草案）》（征求意见稿）意见的通知",
+            "url": "https://dohurd.ah.gov.cn/content/article/58250971",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cz-zjw",
+      "name": "滁州市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zfcxjsj.chuzhou.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "tl-zjw",
+      "name": "铜陵市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zfcxjsj.tl.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "fj-zjw",
+      "name": "福建省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.fujian.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "xm-zjw",
+      "name": "厦门市住房和建设局",
+      "level": "city",
+      "url": "https://szjj.xm.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "jx-zjw",
+      "name": "江西省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.jiangxi.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nc-zjw",
+      "name": "南昌市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zjj.nc.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nc-zjw-csgx",
+      "name": "南昌市住建局·城市更新专栏",
+      "level": "city",
+      "url": "https://zjj.nc.gov.cn/nczfbzglj/csgx",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "jdz-zjw",
+      "name": "景德镇市住房和城乡建设局",
+      "level": "city",
+      "url": "http://zjj.jdz.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sd-zjw",
+      "name": "山东省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.shandong.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "yt-zjw",
+      "name": "烟台市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zjj.yantai.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "wf-zjw",
+      "name": "潍坊市住房和城乡建设局",
+      "level": "city",
+      "url": "https://jsj.weifang.gov.cn",
+      "status": "ok",
+      "records_found": 2,
+      "changes": {
+        "added": [
+          {
+            "title": "一图读懂丨城市更新“十五五”规划",
+            "url": "https://mp.weixin.qq.com/s/-asRv5WL79RHREVbAVI8Mg",
+            "date": "2026-06-05",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "省住建厅来我市调研城镇老旧小区改造及非...",
+            "url": "https://jsj.weifang.gov.cn/55341/1306539552.html",
+            "date": "2025-08-12",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hn-zjw",
+      "name": "河南省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "https://hnjs.henan.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "洛阳：老旧小区装电梯最高补助30万元",
+            "url": "http://hnjs.henan.gov.cn/2026/07-24/3378877.html",
+            "date": "2026-07-24",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hb-zjw",
+      "name": "湖北省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.hubei.gov.cn",
+      "status": "ok",
+      "records_found": 18,
+      "changes": {
+        "added": [
+          {
+            "title": "张俊勇调研武汉市城市更新工作 2026-08-03",
+            "url": "http://zjt.hubei.gov.cn/bmdt/dtyw/zjyw/202608/t20260804_5988413.shtml",
+            "date": "2026-08-03",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "经济日报：打造高品质生活空间 扎实推进城市更新 2026-08-11",
+            "url": "http://zjt.hubei.gov.cn/bmdt/dtyw/mtjj/202608/t20260811_5992411.shtml",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "人民日报：城市更新记 2026-08-10",
+            "url": "http://zjt.hubei.gov.cn/bmdt/dtyw/mtjj/202608/t20260810_5991776.shtml",
+            "date": "2026-08-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "武汉市住房和城市更新局",
+            "url": "https://zgj.wuhan.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "宜昌市住房和城市更新局",
+            "url": "http://zj.yichang.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "襄阳市住房和城市更新局",
+            "url": "http://szjj.xiangyang.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "黄石市住房和城市更新局",
+            "url": "http://zjj.huangshi.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "十堰市住房和城市更新局",
+            "url": "http://zjj.shiyan.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "荆州市住房和城市更新局",
+            "url": "http://zjj.jingzhou.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "荆门市住房和城市更新局",
+            "url": "http://zfhcxjsj.jingmen.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "鄂州市住房和城市更新局",
+            "url": "http://cjw.ezhou.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "孝感市住房和城市更新局",
+            "url": "http://xgscxjswyh.xiaogan.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "黄冈市住房和城市更新局",
+            "url": "http://zjw.hg.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "咸宁市住房和城市更新局",
+            "url": "http://zjj.xianning.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "随州市住房和城市更新局",
+            "url": "http://zjj.suizhou.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "天门市住房和城市更新局",
+            "url": "http://www.tianmen.gov.cn/zwgk/bmhxzxxgkml/bm/szfhcxjsj/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "潜江市住房和城市更新局",
+            "url": "https://www.hbqj.gov.cn/szfhcxjsj/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "神农架林区住房和城市更新局",
+            "url": "http://zjj.snj.gov.cn/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hs-zjw",
+      "name": "黄石市住房和城市更新局",
+      "level": "city",
+      "url": "http://zjj.huangshi.gov.cn",
+      "status": "ok",
+      "records_found": 6,
+      "changes": {
+        "added": [
+          {
+            "title": "房管科组织召开鄂州市住房和城市更新局 赴黄考察学...",
+            "url": "http://zjj.huangshi.gov.cn/index2019/zjdt/xydt/202602/t20260209_1307530.html",
+            "date": "2026-02-09",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "推进城市更新 打造“四好”空间 2026-08-03",
+            "url": "http://zjj.huangshi.gov.cn/index2019/zjdt/xydt/202608/t20260803_1348051.html",
+            "date": "2026-08-03",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "黄石这一老旧小区即将改造→ 2026-07-09",
+            "url": "http://zjj.huangshi.gov.cn/index2019/zjdt/xydt/202607/t20260714_1343069.html",
+            "date": "2026-07-09",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "黄石市住房和城市更新局关于公布2026年度行政规范... 2026-06-24",
+            "url": "http://zjj.huangshi.gov.cn/index2019/ztzl/sqxzjcgs/202606/t20260624_1337135.html",
+            "date": "2026-06-24",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "如何高质量推进城市更新 2026-07-29",
+            "url": "http://zjj.huangshi.gov.cn/index2019/hdjl_8002/dyjh_8007/202607/t20260729_1346642.html",
+            "date": "2026-07-29",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新",
+            "url": "http://zjj.huangshi.gov.cn/ztlm/csgx/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hun-zjw",
+      "name": "湖南省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.hunan.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "关于加快推进全省老旧小区充电桩专线接入改造破解新能...",
+            "url": "http://zjt.hunan.gov.cn/zjt/hdjl/jytabl/tadfnr/202607/t20260703_34019197.html",
+            "date": "2026-07-03",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cs-zjw",
+      "name": "长沙市住房和城乡建设局",
+      "level": "city",
+      "url": "https://szjw.changsha.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://szjw.changsha.gov.cn 失败（尝试 2 次）：HTTPSConnectionPool(host='szjw.changsha.gov.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'szjw.changsha.gov.cn'. (_ssl.c:1032)\")))"
+    },
+    {
+      "id": "gd-zjw",
+      "name": "广东省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zfcxjst.gd.gov.cn",
+      "status": "ok",
+      "records_found": 5,
+      "changes": {
+        "added": [
+          {
+            "title": "习近平在上海考察时强调 全面践行人民城市理念 高质量推进城市更新",
+            "url": "http://zfcxjst.gd.gov.cn/xwzx/rdgz/content/post_4926178.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广东城中村改造4项经验做法入选住房城乡建设部可复制可推广经验清单",
+            "url": "http://zfcxjst.gd.gov.cn/xwzx/focus/content/post_4938393.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "聚焦城市更新  赋能提质增效 ——推动城市高质量发展专题培训班暨第二十八期市长（书记）城建专题研究班顺利举办",
+            "url": "http://zfcxjst.gd.gov.cn/xwzx/focus/content/post_4938150.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广东城中村改造4项经验做法入选住房城乡建设部可复制可推广经验清单",
+            "url": "http://zfcxjst.gd.gov.cn/xwzx/zxdt/content/post_4938353.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "三宗地块接连获批！广州坑口村城中村改造按下“加速键”",
+            "url": "http://zfcxjst.gd.gov.cn/xwzx/gdzw/content/post_4916687.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "gz-zjw",
+      "name": "广州市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zfcj.gz.gov.cn",
+      "status": "ok",
+      "records_found": 5,
+      "changes": {
+        "added": [
+          {
+            "title": "广州更新院受邀作城市更新专题授课",
+            "url": "http://zfcj.gz.gov.cn/zjdt/zjxw/content/post_10959819.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/index.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "实施城市更新行动   推动城市高质量发展 | 广州城市更好专栏正式上线",
+            "url": "https://www.gz.gov.cn/zt/gzcsgh/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广州市人民政府关于同意《花都区新街村、大陵村城市更新单元控制性详细规划》等2项规划成果的批复",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/gsgz/content/post_10909546.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新政策文件",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/zcwj/index.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "gz-zjw-csgx",
+      "name": "广州市住建局·城市更新专栏",
+      "level": "city",
+      "url": "https://zfcj.gz.gov.cn/zjyw/csgx",
+      "status": "ok",
+      "records_found": 9,
+      "changes": {
+        "added": [
+          {
+            "title": "广州更新院受邀作城市更新专题授课",
+            "url": "http://zfcj.gz.gov.cn/zjdt/zjxw/content/post_10959819.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/index.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "城市更新",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广州更新院受邀作城市更新专题授课",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/ywgz/content/post_10959835.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广州市人民政府关于同意《花都区新街村、大陵村城市更新单元控制...",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/gsgz/content/post_10909546.html",
+            "date": "2026-02-10",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "实施城市更新行动   推动城市高质量发展 |...",
+            "url": "https://www.gz.gov.cn/zt/gzcsgh/",
+            "date": "2026-07-09",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "广州市更新院受邀参加2026城市更新投融资发展合作论坛并作主...",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/ywgz/content/post_10777318.html",
+            "date": "2026-04-20",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "党建引领聚合力 城市更新谱新篇——六个党组织联合开展主题党日...",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/ywgz/content/post_10738223.html",
+            "date": "2026-03-24",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "【转载】市住建局蔡胜：把城市更新打造为建筑业和现代化服务业深...",
+            "url": "http://zfcj.gz.gov.cn/zjyw/csgx/ywgz/content/post_10698196.html",
+            "date": "2026-02-25",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sz-zjj",
+      "name": "深圳市住房和建设局",
+      "level": "city",
+      "url": "https://zjj.sz.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "深圳市住房和建设局关于《2026年度老旧小区无障碍通行有关工作跟踪评价及技术指导服务》的采购公告",
+            "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12930374.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sz-pnr",
+      "name": "深圳市规划和自然资源局",
+      "level": "city",
+      "url": "https://pnr.sz.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://pnr.sz.gov.cn 失败（尝试 2 次）：412 Client Error: Precondition Failed for url: https://pnr.sz.gov.cn/"
+    },
+    {
+      "id": "sz-portal",
+      "name": "深圳市人民政府",
+      "level": "city",
+      "url": "https://www.sz.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://www.sz.gov.cn 失败（尝试 2 次）：HTTPSConnectionPool(host='www.sz.gov.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: BAD_ECPOINT] bad ecpoint (_ssl.c:1032)')))"
+    },
+    {
+      "id": "gx-zjw",
+      "name": "广西壮族自治区住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.gxzf.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "hai-zjw",
+      "name": "海南省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.hainan.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cq-zjw",
+      "name": "重庆市住房和城乡建设委员会",
+      "level": "city",
+      "url": "https://zfcxjw.cq.gov.cn",
+      "status": "ok",
+      "records_found": 7,
+      "changes": {
+        "added": [
+          {
+            "title": "老社区新生活 九龙坡这两个老旧社区城市更新改到了居民心坎上",
+            "url": "https://zfcxjw.cq.gov.cn/zwxx_166/zwyw/202607/t20260728_15865039.html",
+            "date": "2026-07-28",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "山城风貌升级提档 上半年重庆多个城市更新、风貌提升项目项目落地见效",
+            "url": "https://zfcxjw.cq.gov.cn/zwxx_166/zwyw/202607/t20260707_15805556.html",
+            "date": "2026-07-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "关于发布《城镇老旧小区改造工程安全文明施工标准》的通知",
+            "url": "https://zfcxjw.cq.gov.cn/zwxx_166/gsgg/202608/t20260811_15916851.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "北碚最大“城中村”焕新 老居民住上“好房子”",
+            "url": "https://zfcxjw.cq.gov.cn/zwxx_166/bmdt/qxdt/202607/t20260722_15842964.html",
+            "date": "2026-07-22",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "重庆市城市更新技术导则（修订版）",
+            "url": "https://zfcxjw.cq.gov.cn/zwgk_166/zfxxgkmls/zcwj/qtwj/202605/t20260507_15657286.html",
+            "date": "2026-05-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "图文 | 《重庆市城市更新技术导则修订版》一图读懂",
+            "url": "https://zfcxjw.cq.gov.cn/zwgk_166/zfxxgkmls/zcjd/ytdd/202605/t20260507_15657600.html",
+            "date": "2026-05-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "推动“老房子”变成“好房子” 重庆城市更新住房好房子技术导则发布",
+            "url": "https://www.cqnews.net/web/content_1517173399211315200.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cq-yz",
+      "name": "渝中区人民政府",
+      "level": "district",
+      "url": "https://www.cqyz.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cq-jlp",
+      "name": "九龙坡区人民政府",
+      "level": "district",
+      "url": "https://www.cqjlp.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "sc-zjw",
+      "name": "四川省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://jst.sc.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "涵盖1753个项目！四川发布“十五五”时期首批城市更新...",
+            "url": "http://jst.sc.gov.cn/scjst/ct101448/2026/7/29/9de975b10b684c8a8594bf7a6a57420d.shtml",
+            "date": "2026-07-29",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cd-zjw",
+      "name": "成都市住房和城乡建设局",
+      "level": "city",
+      "url": "http://cdzj.chengdu.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET http://cdzj.chengdu.gov.cn 失败（尝试 2 次）：412 Client Error: Precondition Failed for url: https://cdzj.chengdu.gov.cn/"
+    },
+    {
+      "id": "gz-zfcxjst",
+      "name": "贵州省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zfcxjst.guizhou.gov.cn",
+      "status": "ok",
+      "records_found": 2,
+      "changes": {
+        "added": [
+          {
+            "title": "贵阳：以城市更新之笔绘就民生幸福画卷",
+            "url": "https://zfcxjst.guizhou.gov.cn/xwzx/hydt/202608/t20260811_90721463.html",
+            "date": "2026-08-11",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "贵州城市更新：从“大拆大建”转向“留改拆增”——专访城市更新规划专家孙迪",
+            "url": "https://zfcxjst.guizhou.gov.cn/xwzx/hydt/202608/t20260803_90687804.html",
+            "date": "2026-08-03",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "yn-zjw",
+      "name": "云南省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "https://zfcxjst.yn.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "四部门解读《城市更新“十五五”规划》",
+            "url": "https://zfcxjst.yn.gov.cn/yaowenbobao/492390.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "xz-zjw",
+      "name": "西藏自治区住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.xizang.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "shx-zjw",
+      "name": "陕西省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://js.shaanxi.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "“践行人民城市理念 高质量推进城市更新工作”座谈会在上海召开",
+            "url": "http://js.shaanxi.gov.cn/sy/zjzx/zjyw/202607/t20260730_3661719.html",
+            "date": "2026-07-30",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "xa-zjw",
+      "name": "西安市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zjj.xa.gov.cn",
+      "status": "ok",
+      "records_found": 6,
+      "changes": {
+        "added": [
+          {
+            "title": "市住建局现场调研城市更新片区建设和闲置资产盘活工作",
+            "url": "https://zjj.xa.gov.cn/zw/zfxxgkml/zwxx/gzdt/2086287923612254209.html",
+            "date": "2026-08-09",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "张小波调研城市更新和闲置资产盘活工作并组织召开推进会",
+            "url": "https://zjj.xa.gov.cn/zw/zfxxgkml/zwxx/gzdt/2076167310420250625.html",
+            "date": "2026-07-12",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "【物业管理】老旧小区电梯加装的所需资料及办理流程",
+            "url": "https://zjj.xa.gov.cn/hd/zcwdk/12345smrxdy/2044609656631418881.html",
+            "date": "2026-03-25",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "西安市住房和城乡建设局西安市自然资源和规划局西安市市场监督管理局西安市财政局西安市城中村（棚户区）改造事务中心关于规范回迁安置房交易管理的通告",
+            "url": "https://zjj.xa.gov.cn/zw/zfxxgkml/zwxx/zxtz/2085602483441360898.html",
+            "date": "2026-08-07",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "西安市住房和城乡建设局西安市自然资源和规划局西安市市场监督管理局西安市财政局西安市城中村（棚户区）改造事务中心关于规范回迁安置房交易管理的通告",
+            "url": "https://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2085602483441360898.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          },
+          {
+            "title": "西安市住房和城乡建设局西安市发展和改革委员会西安市市场监督管理局关于印发《西安市超长期特别国债资金支持老旧小区加装电梯工作指引》的通知",
+            "url": "https://zjj.xa.gov.cn/zw/zfxxgkml/fgwj/bmwj/2070323142189416449.html",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "gs-zjw",
+      "name": "甘肃省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "https://zjt.gansu.gov.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://zjt.gansu.gov.cn 失败（尝试 2 次）：412 Client Error: Precondition Failed for url: https://zjt.gansu.gov.cn/"
+    },
+    {
+      "id": "qh-zjw",
+      "name": "青海省住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://zjt.qinghai.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "nx-zjw",
+      "name": "宁夏回族自治区住房和城乡建设厅",
+      "level": "provincial",
+      "url": "http://jst.nx.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "宁报视点丨老旧小区怎样改，才能改到群众心坎上？",
+            "url": "https://www.nxrb.cn/nxrb/template/displayTemplate/news/newsDetail/50125/8116326.html?isShare=true",
+            "date": "",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "yc-zjw",
+      "name": "银川市住房和城乡建设局",
+      "level": "city",
+      "url": "https://zjj.yinchuan.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "xj-zjw",
+      "name": "新疆维吾尔自治区住房和城乡建设厅",
+      "level": "provincial",
+      "url": "https://zjt.xinjiang.gov.cn",
+      "status": "ok",
+      "records_found": 1,
+      "changes": {
+        "added": [
+          {
+            "title": "新疆出台23项重点措施支持实施城市更新行动",
+            "url": "https://tnews.xjmty.com/app/slyapp/sh/202605/t20260515_34463510.html?cid=34463510&sid=149&ctype=article&uid=ONAMPSWbId",
+            "date": "2026-05-15",
+            "doc_number": "",
+            "first_seen": "",
+            "last_seen": ""
+          }
+        ],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "xjbt-zjw",
+      "name": "新疆生产建设兵团住房和城乡建设局",
+      "level": "provincial",
+      "url": "http://jshbj.xjbt.gov.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    },
+    {
+      "id": "cdb",
+      "name": "国家开发银行",
+      "level": "finance",
+      "url": "https://www.cdb.cn",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://www.cdb.cn 失败（尝试 2 次）：412 Client Error: Precondition Failed for url: https://www.cdb.cn/"
+    },
+    {
+      "id": "cpppc",
+      "name": "财政部政府和社会资本合作中心",
+      "level": "finance",
+      "url": "https://www.cpppc.org",
+      "status": "error",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": "FetchError: GET https://www.cpppc.org 失败（尝试 2 次）：403 Client Error: Forbidden for url: https://www.cpppc.org/"
+    },
+    {
+      "id": "adbc",
+      "name": "中国农业发展银行",
+      "level": "finance",
+      "url": "https://www.adbc.com.cn",
+      "status": "ok",
+      "records_found": 0,
+      "changes": {
+        "added": [],
+        "updated": [],
+        "vanished": []
+      },
+      "error": ""
+    }
+  ]
+}
