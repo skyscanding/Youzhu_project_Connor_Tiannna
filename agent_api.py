@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import mimetypes
 import sqlite3
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -95,7 +96,9 @@ def _group_for(level: str, jurisdiction: str, tier: str, district: str) -> str:
         return "国家级依据"
     if jurisdiction == "北京市":
         return "北京市级依据"
-    if district and jurisdiction == district:
+    # The user may enter "丰台区", while records use "北京市丰台区".
+    # Treat either representation as the same target district.
+    if district and (jurisdiction == district or jurisdiction.endswith(district)):
         return "目标区依据"
     if jurisdiction.startswith("北京市"):
         return "北京其他区参考"
@@ -197,6 +200,7 @@ def search(database: Path, query: str, district: str = "", limit: int = 8) -> di
 
 class Handler(BaseHTTPRequestHandler):
     database: Path
+    frontend: Path
 
     def end_headers(self) -> None:
         # The prototype is opened directly with file://, so it needs permission
@@ -221,6 +225,20 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _frontend_file(self, filename: str) -> None:
+        """Serve the bundled prototype from the same local address as the API."""
+        file_path = self.frontend / filename
+        if not file_path.is_file():
+            self._json({"message": "前端文件未找到。"}, HTTPStatus.NOT_FOUND)
+            return
+        body = file_path.read_bytes()
+        content_type = mimetypes.guess_type(file_path.name)[0] or "application/octet-stream"
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", f"{content_type}; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def do_GET(self) -> None:  # noqa: N802
         request = urlparse(self.path)
         if request.path == "/health":
@@ -233,12 +251,9 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self._json({"message": "未找到对应的资料。"}, HTTPStatus.NOT_FOUND)
         elif request.path == "/":
-            body = self._html()
-            self.send_response(HTTPStatus.OK)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._frontend_file("index.html")
+        elif request.path == "/prototype":
+            self._frontend_file("desktop-design-interaction-v2.html")
         else:
             self._json({"message": "Use GET /health or POST /search."}, HTTPStatus.NOT_FOUND)
 
@@ -264,6 +279,7 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
     Handler.database = args.database
+    Handler.frontend = Path(__file__).resolve().parent / "frontend"
     server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
     print(f"Agent API: http://127.0.0.1:{args.port}")
     server.serve_forever()
