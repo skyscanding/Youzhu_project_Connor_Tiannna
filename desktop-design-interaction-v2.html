@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>城市更新合规参谋 · 桌面端设计稿</title>
+<style>
+:root{
+  --primary:#335CFF; --primary-2:#5B7CFF; --primary-soft:#EEF2FF;
+  --bg:#F4F6FB; --surface:#FFFFFF; --surface-2:#FAFBFF;
+  --text:#161A23; --text-2:#5B6472; --text-3:#9AA3B2;
+  --line:#ECEFF5; --line-2:#F2F4F9;
+  --success:#15B97A; --success-soft:#E7F8F0;
+  --warning:#F5A524; --warning-soft:#FEF4E2;
+  --danger:#F2545B; --danger-soft:#FDECEC;
+  --radius:16px; --radius-s:12px;
+  --shadow:0 4px 18px rgba(24,39,75,.07);
+  --shadow-s:0 2px 8px rgba(24,39,75,.05);
+  --side-w:236px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow-x:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;}
+
+/* ===== 布局 ===== */
+.app{display:flex;min-height:100vh;}
+.sidebar{width:var(--side-w);flex:none;background:var(--surface);border-right:1px solid var(--line);
+  position:fixed;top:0;left:0;bottom:0;display:flex;flex-direction:column;padding:18px 14px;z-index:30;}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 8px 18px;}
+.brand .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#335CFF,#5B7CFF);
+  display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:var(--shadow-s);}
+.brand .logo svg{width:21px;height:21px;}
+.brand .bn{font-size:15px;font-weight:800;letter-spacing:-.3px;}
+.brand .bs{font-size:11px;color:var(--text-3);margin-top:1px;}
+.navgrp{font-size:11px;color:var(--text-3);font-weight:700;padding:14px 10px 6px;letter-spacing:.4px;}
+.navitem{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:11px;cursor:pointer;
+  color:var(--text-2);font-size:14px;font-weight:500;margin-bottom:2px;transition:.15s;}
+.navitem svg{width:20px;height:20px;flex:none;}
+.navitem:hover{background:var(--surface-2);color:var(--text);}
+.navitem.active{background:var(--primary-soft);color:var(--primary);font-weight:700;}
+.side-foot{margin-top:auto;display:flex;flex-direction:column;gap:2px;}
+
+.main{margin-left:var(--side-w);flex:1;min-width:0;display:flex;flex-direction:column;min-height:100vh;position:relative;}
+.topbar{height:62px;flex:none;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 26px;position:sticky;top:0;z-index:20;
+  min-width:0;isolation:isolate;}
+.topbar .tt{font-size:18px;font-weight:800;letter-spacing:-.3px;flex:none;white-space:nowrap;min-width:0;}
+.topbar .spacer{flex:1;min-width:0;}
+.topbar .search{flex:1 1 360px;min-width:180px;max-width:420px;display:flex;align-items:center;gap:9px;background:#fff;
+  border:1.5px solid #DADDE5;border-radius:11px;padding:9px 13px;box-shadow:0 1px 2px rgba(0,0,0,.03);transition:.15s;}
+.topbar .search:hover,.topbar .search:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(51,92,255,.08);}
+.topbar .search svg{width:17px;height:17px;color:var(--text-3);flex:none;}
+.topbar .search input{border:none;outline:none;background:transparent;flex:1;min-width:0;font-size:14px;font-family:inherit;color:var(--text);}
+.avatar{width:36px;height:36px;flex:none;border-radius:50%;background:linear-gradient(135deg,#8A5CFF,#B18CFF);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;cursor:pointer;flex:none;}
+.btn-update{display:flex;align-items:center;gap:7px;flex:none;white-space:nowrap;background:var(--primary-soft);color:var(--primary);
+  border:none;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;flex:none;}
+.btn-update svg{width:16px;height:16px;flex:none;}
+
+/* 视图内工具栏 */
+.view-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;min-width:0;flex-wrap:wrap;}
+.view-head .vtitle{font-size:22px;font-weight:800;letter-spacing:-.4px;}
+.view-head .actions{display:flex;align-items:center;gap:10px;flex:none;}
+.view-search{flex:0 1 280px;min-width:180px;display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #DADDE5;
+  border-radius:11px;padding:8px 12px;}
+.view-search svg{color:var(--text-3);flex:none;width:17px;height:17px;}
+.view-search input{border:none;outline:none;background:transparent;flex:1;min-width:0;font-size:14px;font-family:inherit;color:var(--text);}
+
+.content{padding:26px 30px 40px;max-width:1120px;width:100%;margin:0 auto;min-height:calc(100vh - 62px);}
+
+/* 顶部只放全局操作；产品名在侧边栏，页面标题只在内容区出现一次。 */
+.topbar .tt,.topbar .spacer{display:none!important;}
+.topbar .search{margin-left:auto;}
+
+/* ===== 通用组件 ===== */
+.view{display:none;animation:fade .25s ease;}
+.view.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow-s);padding:16px 18px;
+  border:1px solid var(--line-2);cursor:pointer;transition:.15s;}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-1px);}
+.tag{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;line-height:1.4;}
+.tag.ok{background:var(--success-soft);color:var(--success);}
+.tag.warn{background:var(--warning-soft);color:var(--warning);}
+.tag.bad{background:var(--danger-soft);color:var(--danger);}
+.tag.info{background:var(--primary-soft);color:var(--primary);}
+.tag.gray{background:#EEF1F6;color:var(--text-2);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;
+  padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
+.btn.primary{background:linear-gradient(135deg,#335CFF,#5B7CFF);color:#fff;box-shadow:0 6px 16px rgba(51,92,255,.26);}
+.btn.primary:hover{filter:brightness(1.04);}
+.btn.ghost{background:var(--surface-2);color:var(--text);border:1px solid var(--line);}
+.btn.block{width:100%;}
+.field{margin-bottom:15px;}
+.field label{font-size:13px;color:var(--text-2);font-weight:700;display:block;margin-bottom:7px;}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;
+  padding:11px 13px;font-size:14px;outline:none;background:var(--surface-2);color:var(--text);font-family:inherit;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);background:#fff;}
+.note{font-size:12.5px;color:var(--text-3);line-height:1.65;}
+.hr{height:1px;background:var(--line);margin:16px 0;}
+.section-h{font-size:16px;font-weight:800;margin:6px 0 14px;display:flex;align-items:center;gap:9px;}
+.section-h .sub{font-size:12.5px;color:var(--text-3);font-weight:500;margin-left:auto;}
+
+/* 首页统计卡 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px;}
+.stat{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow-s);}
+.stat .v{font-size:26px;font-weight:800;letter-spacing:-.6px;}
+.stat .k{font-size:12.5px;color:var(--text-2);margin-top:3px;}
+.stat .v.blue{color:var(--primary);} .stat .v.green{color:var(--success);} .stat .v.amber{color:var(--warning);}
+
+/* 功能入口卡 */
+.entries{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px;}
+.entry{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--radius);padding:18px;cursor:pointer;
+  box-shadow:var(--shadow-s);transition:.15s;display:flex;align-items:center;gap:14px;}
+.entry:hover{box-shadow:var(--shadow);transform:translateY(-1px);}
+.entry .eico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:#fff;flex:none;}
+.entry .eico svg{width:23px;height:23px;}
+.entry .et{font-size:15px;font-weight:700;}
+.entry .es{font-size:12px;color:var(--text-3);margin-top:2px;}
+
+/* 两列布局（列表+侧栏） */
+.cols{display:grid;grid-template-columns:1fr 320px;gap:22px;align-items:start;}
+.list .card{margin-bottom:12px;}
+.side-card{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow-s);margin-bottom:16px;}
+
+/* 筛选 chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.chip{font-size:13px;font-weight:600;color:var(--text-2);background:var(--surface);border:1px solid var(--line);
+  border-radius:20px;padding:7px 14px;cursor:pointer;}
+.chip.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+/* 结果指标块 */
+.resbox{background:linear-gradient(135deg,#EEF2FF,#F6F8FF);border:1px solid #E0E7FF;border-radius:14px;padding:18px;margin-top:6px;}
+.resgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.resgrid.s2{grid-template-columns:repeat(2,1fr);}
+.resgrid.s4{grid-template-columns:repeat(4,1fr);}
+.stat2{background:var(--surface);border-radius:12px;padding:13px 14px;}
+.stat2 .v{font-size:21px;font-weight:800;letter-spacing:-.4px;}
+.stat2 .k{font-size:12px;color:var(--text-2);margin-top:2px;}
+.v.blue{color:var(--primary);} .v.green{color:var(--success);} .v.amber{color:var(--warning);} .v.red{color:var(--danger);}
+
+/* 流程步骤 */
+.flow{position:relative;padding-left:8px;}
+.step{display:flex;gap:14px;padding:10px 0 22px;position:relative;}
+.step:not(:last-child)::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:var(--line);}
+.step .dot{width:32px;height:32px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:#fff;background:var(--primary);z-index:1;}
+.step .dot.muted{background:#C7CEDB;}
+.step .body{flex:1;}
+.step .st{font-size:15px;font-weight:700;}
+.step .sd{font-size:13px;color:var(--text-2);margin-top:4px;}
+.step .src{font-size:12px;color:var(--text-3);margin-top:6px;}
+
+/* 详情聚焦面板：从底部上滑，保留主页面可见范围。 */
+.overlay{position:fixed;top:0;right:0;bottom:0;left:var(--side-w);background:rgba(16,22,38,.34);backdrop-filter:blur(2px);z-index:100;opacity:0;pointer-events:none;transition:opacity .28s ease;}
+.overlay.show{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;left:var(--side-w);right:0;bottom:18px;width:85%;height:85%;margin:0 auto;background:var(--surface);z-index:110;
+  border:1px solid rgba(255,255,255,.72);border-radius:22px;box-shadow:0 24px 70px rgba(16,22,38,.28);opacity:0;
+  transform:translateY(calc(100% + 36px)) scale(.985);transition:transform .38s cubic-bezier(.2,.85,.2,1),opacity .22s ease;display:flex;flex-direction:column;overflow:hidden;}
+.drawer.show{transform:translateY(0) scale(1);opacity:1;}
+.drawer-head{flex:none;padding:23px 22px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;position:relative;}
+.drawer-head::before{content:"";position:absolute;top:9px;left:50%;width:38px;height:4px;border-radius:99px;background:#D9DFEA;transform:translateX(-50%);}
+.drawer-head .t{font-size:17px;font-weight:800;}
+.drawer-head .x{margin-left:auto;width:32px;height:32px;border-radius:9px;background:var(--surface-2);
+  display:flex;align-items:center;justify-content:center;color:var(--text-2);cursor:pointer;font-size:18px;}
+.drawer-body{flex:1;overflow:auto;padding:20px 22px 32px;}
+
+/* 居中弹窗 */
+.modal-mask{position:fixed;inset:0;background:rgba(16,22,38,.4);z-index:120;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-mask.show{display:flex;animation:fade .2s ease;}
+.modal{width:100%;max-width:440px;background:var(--surface);border-radius:18px;padding:22px;animation:rise .25s cubic-bezier(.2,.8,.2,1);position:relative;}
+@keyframes rise{from{transform:translateY(24px);opacity:.4;}to{transform:none;opacity:1;}}
+.modal h3{font-size:18px;font-weight:800;margin-bottom:14px;}
+.modal .close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:9px;background:var(--surface-2);
+  display:flex;align-items:center;justify-content:center;color:var(--text-2);cursor:pointer;font-size:18px;}
+
+/* 开关 */
+.switch{position:relative;width:46px;height:27px;flex:none;}
+.switch input{opacity:0;width:0;height:0;}
+.switch .sl{position:absolute;inset:0;background:#D7DCE6;border-radius:27px;transition:.2s;cursor:pointer;}
+.switch .sl::before{content:"";position:absolute;height:21px;width:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.switch input:checked + .sl{background:var(--primary);}
+.switch input:checked + .sl::before{transform:translateX(19px);}
+
+/* 响应式 */
+@media(max-width:1080px){.stats{grid-template-columns:repeat(2,1fr);}.entries{grid-template-columns:repeat(2,1fr);}.cols{grid-template-columns:1fr;}}
+@media(max-width:860px){:root{--side-w:72px;}.brand .bn,.brand .bs,.navitem span,.navgrp,.side-foot .nf{display:none;}
+  .navitem{justify-content:center;}.brand{justify-content:center;}}
+@media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr);}.entries{grid-template-columns:1fr;}.topbar .search{display:none;}.content{padding:18px 16px 32px;}}
+
+/* ===== 流程导航（双轨 + 分支 + 联动） ===== */
+.flow2{margin-top:2px;}
+.track-tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.track-tab{border:1px solid var(--border);background:#fff;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;display:flex;align-items:center;gap:7px;}
+.track-tab .tg{font-size:11px;color:var(--text-3);font-weight:500;}
+.track-tab.active{background:var(--primary-soft);border-color:#DCE4FF;color:var(--primary);}
+.track-tab.active .tg{color:var(--primary);}
+.ptype-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:16px;background:var(--surface-2);padding:10px 12px;border-radius:12px;}
+.ptype-row .pl{font-size:13px;font-weight:700;color:var(--text-2);margin-right:2px;flex:none;}
+.pchip{border:1px solid var(--border);background:#fff;border-radius:20px;padding:6px 12px;font-size:12.5px;color:var(--text-2);cursor:pointer;}
+.pchip.active{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:600;}
+.phase{margin-bottom:14px;}
+.phase-h{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.phase-h .pl{font-size:13px;font-weight:800;color:var(--text);letter-spacing:.3px;}
+.phase-h .ln{flex:1;height:1px;background:var(--border);}
+.ph-body{display:flex;flex-wrap:wrap;gap:8px;}
+.fnode{background:#fff;border:1px solid var(--border);border-radius:11px;padding:9px 13px;font-size:13.5px;font-weight:600;color:var(--text);box-shadow:var(--shadow-s);flex:1 1 200px;min-width:160px;display:flex;align-items:center;gap:8px;justify-content:space-between;}
+.fnode.dim{opacity:.4;}
+.fnode .apptag{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;flex:none;white-space:nowrap;}
+.fnode .apptag.on{background:var(--primary-soft);color:var(--primary);}
+.fnode .apptag.off{background:#F1F2F6;color:var(--text-3);border:1px dashed var(--border);}
+.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+@media(max-width:860px){.branches{grid-template-columns:1fr;}}
+.branch{border:1.5px dashed var(--border);border-radius:12px;padding:10px 12px;background:#FAFBFF;}
+.branch.dim{opacity:.45;}
+.branch.hot{border-color:var(--primary);background:var(--primary-soft);box-shadow:0 0 0 3px rgba(51,92,255,.12);}
+.branch .bn{font-size:13px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.branch .bn .tag{font-size:10.5px;font-weight:600;}
+.branch .ph-body .fnode{flex:1 1 100%;min-width:0;}
+.flow-note{margin-top:14px;font-size:12.5px;color:var(--text-3);line-height:1.7;}
+
+/* ===== 指标计算（三栏强排引擎） ===== */
+.calc-grid{display:grid;grid-template-columns:320px minmax(0,1fr) 360px;gap:18px;align-items:stretch;margin-top:2px;}
+@media(max-width:1100px){.calc-grid{grid-template-columns:1fr;align-items:start;}}
+.calc-col{display:flex;flex-direction:column;gap:14px;border-radius:18px;padding:16px;background:var(--surface);border:1px solid var(--line-2);box-shadow:var(--shadow-s);}
+.calc-col.l{background:linear-gradient(180deg,#F5F8FF,#FBFCFF);border-color:#E3E9FF;}
+.calc-col.m{background:linear-gradient(180deg,#FFFBF4,#FEFEFB);border-color:#F5E8CE;}
+.calc-col.r{background:linear-gradient(180deg,#F3FBF7,#FBFEFC);border-color:#D8EFE3;}
+.calc-col .card{margin-bottom:0;cursor:default;box-shadow:none;background:#fff;}
+.calc-col .card:hover{transform:none;box-shadow:none;}
+.calc-col .card h2{font-size:14px;margin:0 0 4px;font-weight:700;display:flex;align-items:center;gap:7px;}
+.calc-col .card .hint{font-size:11.5px;color:var(--text-3);margin:0 0 12px;line-height:1.5;}
+.calc-col .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);flex:none;}
+.calc-cap{font-size:12px;font-weight:800;letter-spacing:.5px;margin:0 0 4px;display:flex;align-items:center;gap:7px;color:var(--text-3);}
+.calc-cap.l{color:var(--primary);} .calc-cap.m{color:var(--warning);} .calc-cap.r{color:var(--success);}
+.calc-cap::before{content:'';width:16px;height:3px;border-radius:2px;background:currentColor;}
+
+.calc-fld{display:block;margin-bottom:11px;}
+.calc-fld:last-child{margin-bottom:0;}
+.calc-fld .lab{font-size:12px;color:var(--text-2);display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;gap:6px;}
+.calc-fld .lab b{color:var(--text-1,#161A23);font-weight:600;}
+.lab .src{font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:6px;white-space:nowrap;flex:none;}
+.src.code{color:var(--primary);background:var(--primary-soft);}
+.src.proj{color:#9A6400;background:#FFF3DD;}
+.src.exp{color:var(--text-2);background:#EEF1F6;}
+.calc-inp{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:0 11px;transition:.15s;}
+.calc-inp:focus-within{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(51,92,255,.12);}
+.calc-inp input{flex:1;min-width:0;border:0;background:transparent;padding:9px 0;font-size:14px;color:var(--text);font-weight:600;outline:none;width:100%;}
+.calc-inp .unit{font-size:12px;color:var(--text-3);padding-left:6px;flex:none;white-space:nowrap;}
+.calc-two{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.calc-sel{width:100%;border:1px solid var(--line);background:var(--surface-2);border-radius:11px;padding:9px 11px;font-size:14px;color:var(--text);font-weight:600;outline:none;}
+.calc-sel:focus{border-color:var(--primary);}
+.calc-btn{appearance:none;border:0;cursor:pointer;font-weight:600;font-size:13.5px;border-radius:11px;padding:10px 14px;transition:.15s;font-family:inherit;}
+.calc-btn.primary{background:linear-gradient(135deg,#335CFF,#5B7CFF);color:#fff;box-shadow:0 6px 16px rgba(51,92,255,.22);}
+.calc-btn.soft{background:var(--primary-soft);color:var(--primary);}
+.calc-btn.block{width:100%;}
+.badge-tbd{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#9A6400;background:#FFF3DD;border:1px solid #F5D79A;border-radius:999px;padding:2px 8px;margin-left:6px;}
+
+.unit-row{border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:var(--surface-2);}
+.unit-row.com{background:#FFF6F2;border-color:#FBD9CF;}
+.unit-row .uh{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+.unit-row .uh .idx{width:22px;height:22px;border-radius:7px;background:var(--primary-soft);color:var(--primary);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;}
+.unit-row .uh input.nm{flex:1;min-width:0;border:0;background:transparent;font-size:13.5px;font-weight:700;color:var(--text);outline:none;}
+.unit-row .uh select.tp{border:1px solid var(--line);border-radius:8px;font-size:11px;font-weight:600;padding:3px 4px;background:#fff;color:var(--text-2);outline:none;}
+.unit-row .uh .del{border:0;background:transparent;color:var(--text-3);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;flex:none;}
+.unit-row .ug{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+.mini{background:#fff;border:1px solid var(--line);border-radius:9px;padding:6px 7px;}
+.mini .ml{font-size:10px;color:var(--text-3);margin-bottom:2px;}
+.mini input,.mini select{border:0;width:100%;font-size:13px;font-weight:700;color:var(--text);outline:none;padding:0;background:transparent;}
+.unit-row .ud{display:flex;gap:10px;margin-top:9px;font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.unit-row .ud span b{color:var(--text);}
+.calc-chips{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.calc-chip{border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12px;font-weight:600;color:var(--text-2);padding:5px 12px;cursor:pointer;font-family:inherit;}
+.calc-chip:active{transform:translateY(1px);}
+.calc-addrow{width:100%;border:1.5px dashed var(--primary);background:var(--primary-soft);color:var(--primary);border-radius:12px;padding:11px;font-weight:700;font-size:13px;cursor:pointer;margin-top:2px;font-family:inherit;}
+
+.calc-toggle{display:flex;gap:6px;margin-bottom:12px;background:#EEF1F6;padding:4px;border-radius:11px;}
+.calc-toggle button{flex:1;border:0;background:transparent;border-radius:8px;padding:7px;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer;font-family:inherit;}
+.calc-toggle button.on{background:#fff;color:var(--primary);box-shadow:0 1px 2px rgba(16,26,35,.08);}
+.mix4{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.mix4 .mf{margin-bottom:0;}
+.mix4 .ml{font-size:11px;color:var(--text-2);margin-bottom:4px;display:flex;justify-content:space-between;}
+.mix4 .ml b{color:var(--text);}
+.grp-title{font-size:11px;font-weight:700;color:var(--text-3);margin:12px 0 7px;letter-spacing:.3px;}
+
+.hero{background:linear-gradient(135deg,#1F2A44,#2B3B66);color:#fff;border-radius:14px;padding:18px;position:relative;overflow:hidden;transition:background .2s;}
+.hero.ok{background:linear-gradient(135deg,#0F8A5F,#15B97A);}
+.hero.bad{background:linear-gradient(135deg,#C0392B,#F2545B);}
+.hero .rt{font-size:12px;opacity:.78;}
+.hero .rv{font-size:40px;font-weight:800;letter-spacing:-.5px;line-height:1.1;margin:2px 0 2px;}
+.hero .rv small{font-size:16px;font-weight:600;opacity:.7;}
+.hero .bar{height:7px;border-radius:999px;background:rgba(255,255,255,.18);margin-top:10px;overflow:hidden;}
+.hero .bar i{display:block;height:100%;border-radius:999px;background:#fff;transition:width .2s;}
+.hero .cap{display:flex;justify-content:space-between;font-size:11px;opacity:.9;margin-top:6px;}
+
+.chk-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-size:12.5px;font-weight:600;}
+.pill .pd{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;flex:none;}
+.pill.ok{background:var(--success-soft);color:var(--success);} .pill.ok .pd{background:var(--success);}
+.pill.bad{background:var(--danger-soft);color:var(--danger);} .pill.bad .pd{background:var(--danger);}
+.pill.neu{background:#EEF1F6;color:var(--text-2);} .pill.neu .pd{background:var(--text-3);}
+.pill i{font-style:normal;font-weight:700;opacity:.95;}
+.pill b{font-weight:800;}
+
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+.rc{background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:11px 12px;}
+.rc .rl{font-size:11px;color:var(--text-2);margin-bottom:3px;}
+.rc .rv2{font-size:19px;font-weight:800;color:var(--text);}
+.rc .rv2 small{font-size:11px;color:var(--text-3);font-weight:600;margin-left:2px;}
+.rc.derived{background:#F7F9FF;border-style:dashed;}
+
+.mix{margin-top:14px;}
+.mix .mh{font-size:12px;color:var(--text-2);margin-bottom:7px;display:flex;justify-content:space-between;}
+.mix .mh b{color:var(--text);}
+.bar2{height:22px;border-radius:7px;overflow:hidden;display:flex;background:var(--line);margin-bottom:5px;}
+.bar2 i{height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;white-space:nowrap;transition:width .2s;}
+.mix .leg{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:11px;color:var(--text-2);}
+.mix .leg i{width:9px;height:9px;border-radius:3px;display:inline-block;margin-right:4px;vertical-align:middle;}
+
+.llm{background:linear-gradient(135deg,#EEF3FF,#F6F8FF);border:1px solid #DCE5FF;border-radius:14px;padding:13px;}
+.llm .lh{font-size:12.5px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.llm textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:13px;font-family:inherit;resize:vertical;min-height:54px;outline:none;background:#fff;}
+.llm textarea:focus{border-color:var(--primary);}
+.llm .sug{margin-top:9px;font-size:12.5px;color:var(--text);background:#fff;border:1px dashed #C9D6FF;border-radius:10px;padding:10px;line-height:1.6;display:none;}
+.llm .sug.show{display:block;}
+.calc-foot{font-size:10.5px;color:var(--text-3);margin-top:5px;}
+.calc-note{font-size:11px;color:var(--text-3);text-align:center;line-height:1.7;}
+.excel-btn{width:100%;border:0;background:linear-gradient(135deg,#335CFF,#5B7CFF);color:#fff;font-weight:700;font-size:14px;border-radius:13px;padding:13px;cursor:pointer;box-shadow:var(--shadow);margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;}
+.excel-btn:active{transform:translateY(1px);}
+
+@media(max-width:620px){.unit-row .ug{grid-template-columns:repeat(2,1fr);}.res-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- 侧边栏 -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div>
+      <div><div class="bn">合规参谋</div><div class="bs">城市更新 Agent</div></div>
+    </div>
+    <div class="navgrp">核心功能</div>
+    <div class="navitem active" data-view="home" onclick="switchView('home')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 11l9-8 9 8M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg><span>工作台</span></div>
+    <div class="navitem" data-view="query" onclick="switchView('query')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg><span>政策查询</span></div>
+    <div class="navitem" data-view="cases" onclick="switchView('cases')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2"/></svg><span>案例库</span></div>
+    <div class="navitem" data-view="calc" onclick="switchView('calc')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg><span>指标计算</span></div>
+    <div class="navitem" data-view="flow" onclick="switchView('flow')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.4-2.7A1 1 0 013 16.4V5.6A1 1 0 014.4 4.7L9 7m0 13l6-3m-6 3V7m6 10l4.6 2.3A1 1 0 0021 18.4V7.6a1 1 0 00-.6-.9L15 4"/></svg><span>流程导航</span></div>
+    <div class="navitem" data-view="monitor" onclick="switchView('monitor')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.5 12C3.7 8 7.5 5 12 5s8.3 3 9.5 7c-1.2 4-5 7-9.5 7s-8.3-3-9.5-7z"/></svg><span>政策监测</span></div>
+    <div class="navitem" data-view="projects" onclick="switchView('projects')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg><span>我的项目</span></div>
+    <div class="side-foot">
+      <div class="navitem" data-view="settings" onclick="switchView('settings')"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.4 13a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-2.9 1.2V21a2 2 0 11-4 0v-.1A1.7 1.7 0 007 19.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00-1.2-2.9H3a2 2 0 110-4h.1A1.7 1.7 0 004.7 7l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 002.9-1.2V3a2 2 0 114 0v.1A1.7 1.7 0 0017 4.7l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 001.2 2.9H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg><span>设置</span></div>
+      <div class="navitem" onclick="openFeedback()"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>意见反馈</span></div>
+    </div>
+  </aside>
+
+  <!-- 主区 -->
+  <div class="main">
+    <header class="topbar">
+      <div class="tt" style="display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#335CFF,#5B7CFF);display:flex;align-items:center;justify-content:center;color:#fff">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg>
+        </div>
+        <span>合规参谋</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="search" id="topSearch" onclick="switchView('query')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg>
+        <input placeholder="搜索政策文件、条款、指标…" readonly>
+      </div>
+      <button class="btn-update" onclick="switchView('monitor')" title="检查政策更新">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 9a8 8 0 0114-3M20 15a8 8 0 01-14 3"/></svg>
+        <span>检查更新</span>
+      </button>
+      <div class="avatar" title="合规参谋">参</div>
+    </header>
+
+    <main class="content">
+      <!--MAIN-VIEWS-->
+
+      <!-- ===== 工作台 ===== -->
+      <div class="view active" id="view-home">
+        <div class="stats">
+          <div class="stat"><div class="v blue">28</div><div class="k">已收录政策文件</div></div>
+          <div class="stat"><div class="v">16</div><div class="k">参考案例</div></div>
+          <div class="stat"><div class="v green">56</div><div class="k">结构化规则</div></div>
+          <div class="stat"><div class="v amber">3</div><div class="k">本周规则更新</div></div>
+        </div>
+        <div class="entries">
+          <div class="entry" onclick="switchView('query')"><div class="eico" style="background:linear-gradient(135deg,#335CFF,#5B7CFF)"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg></div><div><div class="et">政策查询</div><div class="es">按关键词检索文件与条款</div></div></div>
+          <div class="entry" onclick="switchView('calc')"><div class="eico" style="background:linear-gradient(135deg,#F5A524,#FFC85B)"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div><div><div class="et">指标计算</div><div class="es">强排方案与经济指标</div></div></div>
+          <div class="entry" onclick="switchView('cases')"><div class="eico" style="background:linear-gradient(135deg,#15B97A,#3FD49A)"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2"/></svg></div><div><div class="et">案例库</div><div class="es">同类项目经验参考</div></div></div>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="section-h">最近项目 <span class="sub" style="cursor:pointer" onclick="switchView('projects')">全部 ›</span></div>
+            <div class="list">
+              <div class="card" onclick="openProject(0)"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700">朝阳某旧厂区更新项目</div><div class="note" style="margin-top:3px">片区规模 8.6 万㎡ · 更新类型：旧厂房改造</div></div><span class="tag info">进行中</span></div></div>
+              <div class="card" onclick="openProject(1)"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700">海淀老旧小区改造</div><div class="note" style="margin-top:3px">片区规模 3.2 万㎡ · 更新类型：综合整治</div></div><span class="tag gray">草稿</span></div></div>
+            </div>
+            <div class="section-h">政策动态</div>
+            <div class="list"><div class="card" onclick="switchView('monitor')" style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:14px;font-weight:600">规则库本周新增 2 条、更新 1 条</div><span class="tag warn">待确认</span></div></div></div>
+          </div>
+          <div>
+            <div class="side-card"><div class="section-h" style="margin:0 0 12px">快捷操作</div>
+              <button class="btn primary block" onclick="switchView('projects')">+ 新建项目</button>
+              <div style="height:10px"></div>
+              <button class="btn ghost block" onclick="switchView('monitor')">检查政策更新</button>
+            </div>
+            <div class="side-card"><div class="section-h" style="margin:0 0 10px">使用提示</div>
+              <div class="note">所有合规结论均附条款号与官方链接；系统只做规则计算与文本整理，不参与数值判定，不生成幻觉答案。</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 政策查询 ===== -->
+      <div class="view" id="view-query">
+        <div class="view-head">
+          <div class="vtitle">政策查询</div>
+          <div class="actions"><span class="note">每条结论均附条款号与官方链接，系统不参与数值判定</span></div>
+        </div>
+        <div class="card" style="cursor:default;margin-bottom:16px">
+          <div style="display:flex;gap:10px;align-items:center">
+            <svg fill="none" stroke="#9AA3B2" viewBox="0 0 24 24" style="width:19px;height:19px;flex:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg>
+            <input id="qInput" placeholder="如：老旧小区改造流程、联合审查" style="flex:1;border:none;outline:none;font-size:15px;background:transparent;color:var(--text);font-family:inherit">
+            <input id="qDistrict" placeholder="目标区（如：丰台区）" style="width:168px;border:1px solid var(--border);border-radius:8px;outline:none;font-size:14px;padding:9px 10px;background:var(--surface);color:var(--text);font-family:inherit">
+            <button class="btn primary" style="padding:10px 18px" onclick="runQuery()">搜索</button>
+          </div>
+        </div>
+        <div class="chips" id="qChips">
+          <div class="chip" onclick="setQ('北京 城市更新 容积率上限')">容积率上限</div>
+          <div class="chip" onclick="setQ('公共空间奖励 是否适用')">奖励政策适用</div>
+          <div class="chip" onclick="setQ('退线 距离要求')">退线距离</div>
+          <div class="chip" onclick="setQ('老旧小区 改造流程')">改造流程</div>
+          <div class="chip" onclick="setQ('装配式建筑 奖励')">装配式奖励</div>
+        </div>
+        <div id="queryResults"></div>
+      </div>
+
+      <!--VIEW-CASES-->
+
+      <!-- ===== 案例库 ===== -->
+      <div class="view" id="view-cases">
+        <div class="view-head">
+          <div class="vtitle">案例库</div>
+          <div class="actions">
+            <div class="view-search">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg>
+              <input id="caseSearch" placeholder="搜索案例关键词…" oninput="filterCasesByText(this.value)">
+            </div>
+          </div>
+        </div>
+        <div class="chips" id="caseChips">
+          <div class="chip active" onclick="filterCases('all',this)">全部</div>
+          <div class="chip" onclick="filterCases('旧厂房',this)">旧厂房改造</div>
+          <div class="chip" onclick="filterCases('老旧小区',this)">老旧小区</div>
+          <div class="chip" onclick="filterCases('商圈',this)">商圈更新</div>
+          <div class="chip" onclick="filterCases('片区',this)">片区统筹</div>
+        </div>
+        <div class="list" id="caseList"></div>
+      </div>
+
+      <!-- ===== 流程导航 ===== -->
+      <div class="view" id="view-flow">
+        <div class="view-head">
+          <div class="vtitle">流程导航</div>
+          <div class="actions"><span class="note">城市更新入库项目主流程 · 双轨并行（主流程 + 协同平台）</span></div>
+        </div>
+
+        <div class="track-tabs" id="trackTabs">
+          <div class="track-tab active" data-track="law">入库项目主流程 <span class="tg">默认</span></div>
+          <div class="track-tab" data-track="platform">多规合一协同平台 <span class="tg">并行参考</span></div>
+        </div>
+
+        <div class="ptype-row">
+          <span class="pl">项目类型</span>
+          <span class="pchip active" data-pt="all">全部</span>
+          <span class="pchip" data-pt="old">老旧小区改造</span>
+          <span class="pchip" data-pt="plant">旧厂房更新</span>
+          <span class="pchip" data-pt="area">片区统筹</span>
+          <span class="pchip" data-pt="rent">租赁住宅</span>
+        </div>
+
+        <div class="flow2" id="flow2"></div>
+
+        <div class="flow-note">
+          说明：依据您提供的入库项目流程整理。会商阶段分「实施方案联合审查项目 / 其他项目（需规划手续）/ 其他项目（无需手续）」三条分支；审批阶段的「用地审批+立项」「工程规划许可」仅分支一、二需要，「施工许可」三条分支均需要。选择项目类型后，系统按映射自动高亮适用路径、淡化不适用节点（映射已确认）。「策划生成阶段」在两阶段末的复现有意为之（储备阶段与初审阶段均产出策划生成）。流程节点名称以您提供的文本为准，请核对标签准确性；具体经办要求以现行政策与主管部门规定为准。
+        </div>
+      </div>
+
+      <!-- ===== 政策监测 ===== -->
+      <div class="view" id="view-monitor">
+        <div class="view-head">
+          <div class="vtitle">政策监测</div>
+          <div class="actions"><button class="btn primary" onclick="alert('已触发定向检查，未发现新增变更')">重新检查更新</button></div>
+        </div>
+        <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+          <div class="stat"><div class="v green">56</div><div class="k">规则总数</div></div>
+          <div class="stat"><div class="v blue">28</div><div class="k">监测文件</div></div>
+          <div class="stat"><div class="v amber">3</div><div class="k">待确认变更</div></div>
+        </div>
+        <div class="section-h">变更清单 <span class="sub">最近检查：刚刚</span></div>
+        <div class="list">
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center;cursor:default">
+            <div><div style="font-size:14px;font-weight:700">《北京市城市更新条例》实施细则</div><div class="note" style="margin-top:3px">2026-07-28 发布 · 奖励系数由 0.1 调整为 0.15</div></div>
+            <div style="display:flex;gap:8px;align-items:center"><span class="tag warn">待确认</span><button class="btn ghost" style="padding:8px 14px" onclick="this.closest('.card').querySelector('.tag').className='tag ok';this.closest('.card').querySelector('.tag').textContent='已同步'">确认同步</button></div>
+          </div>
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center;cursor:default">
+            <div><div style="font-size:14px;font-weight:700">公共空间奖励政策（区级）</div><div class="note" style="margin-top:3px">2026-07-25 更新 · 适用条件新增"开放时长≥8h"</div></div>
+            <div style="display:flex;gap:8px;align-items:center"><span class="tag warn">待确认</span><button class="btn ghost" style="padding:8px 14px" onclick="this.closest('.card').querySelector('.tag').className='tag ok';this.closest('.card').querySelector('.tag').textContent='已同步'">确认同步</button></div>
+          </div>
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center;cursor:default">
+            <div><div style="font-size:14px;font-weight:700">旧厂房改造导则（市级）</div><div class="note" style="margin-top:3px">2026-07-20 新增 · 装配式建筑奖励 +0.1</div></div>
+            <div style="display:flex;gap:8px;align-items:center"><span class="tag ok">已同步</span></div>
+          </div>
+        </div>
+        <div style="margin-top:16px"><button class="btn primary" onclick="alert('已触发定向检查，未发现新增变更')">重新检查更新</button></div>
+        <div class="hr"></div>
+        <div class="note">说明：爬虫仅负责发现变化并提醒，不自动改写规则库；是否更新由人工确认后手动执行。</div>
+      </div>
+
+      <!--VIEW-CALC-->
+
+      <!-- ===== 指标计算（三栏强排引擎） ===== -->
+      <div class="view" id="view-calc">
+        <div class="view-head">
+          <div class="vtitle">指标计算</div>
+          <div class="actions"><span class="note">规范层联动确定硬指标 · 实时联动测算 · 一键导出经济技术指标</span></div>
+        </div>
+
+        <div class="calc-grid">
+          <!-- 左栏：硬性指标 -->
+          <div class="calc-col l">
+            <div class="calc-cap l">硬性指标（规范 / 约束）</div>
+            <div class="card">
+              <h2><span class="dot"></span>规范层联动</h2>
+              <p class="hint">选择区位 / 项目类型，自动带出硬性指标与配建默认值；之后可随时手改覆盖。</p>
+              <label class="calc-fld"><span class="lab">城市</span>
+                <select class="calc-sel" id="city"><option value="bj">北京</option></select>
+              </label>
+              <label class="calc-fld"><span class="lab">行政区 <b style="color:var(--text-3);font-weight:500">（决定车位类地区）</b></span>
+                <select class="calc-sel" id="district"></select>
+              </label>
+              <label class="calc-fld"><span class="lab">项目类型 <span class="badge-tbd">⏳ 待确定 · 稍后确认</span></span>
+                <select class="calc-sel" id="ptype">
+                  <option value="tbd">（待确定 · 稍后确认）</option>
+                  <option value="apt">新建公寓 / 租赁住宅</option>
+                  <option value="old">老旧小区改造</option>
+                  <option value="fac">旧厂房更新</option>
+                  <option value="block">片区统筹</option>
+                </select>
+              </label>
+              <button class="calc-btn soft block" id="applySpec">应用规范默认值到下方</button>
+            </div>
+
+            <div class="card">
+              <h2><span class="dot"></span>地块硬性指标</h2>
+              <p class="hint">可直接编辑。修改后所有派生与约束实时联动。</p>
+              <label class="calc-fld"><span class="lab">用地面积 S</span>
+                <div class="calc-inp"><input id="S" type="number" value="11256.68"><span class="unit">㎡</span></div>
+              </label>
+              <div class="calc-two">
+                <label class="calc-fld"><span class="lab">容积率上限</span>
+                  <div class="calc-inp"><input id="far" type="number" step="0.01" value="2.0"><span class="unit">—</span></div>
+                </label>
+                <label class="calc-fld"><span class="lab">建筑限高</span>
+                  <div class="calc-inp"><input id="hmax" type="number" value="24"><span class="unit">m</span></div>
+                </label>
+              </div>
+              <div class="calc-two">
+                <label class="calc-fld"><span class="lab">标准层高</span>
+                  <div class="calc-inp"><input id="fh" type="number" step="0.1" value="3.0"><span class="unit">m</span></div>
+                </label>
+                <label class="calc-fld"><span class="lab">绿地率下限 <b style="color:var(--text-3);font-weight:500">仅输入</b></span>
+                  <div class="calc-inp"><input id="grn" type="number" step="0.01" value="30"><span class="unit">%</span></div>
+                </label>
+              </div>
+              <div class="calc-two">
+                <label class="calc-fld"><span class="lab">建筑密度上限 <b style="color:var(--text-3);font-weight:500">选填</b></span>
+                  <div class="calc-inp"><input id="dmax" type="number" step="0.01" placeholder="如 35"><span class="unit">%</span></div>
+                </label>
+                <label class="calc-fld"><span class="lab">总户数要求 <b style="color:var(--text-3);font-weight:500">选填</b></span>
+                  <div class="calc-inp"><input id="kReq" type="number" placeholder="如 800"><span class="unit">户</span></div>
+                </label>
+              </div>
+              <p class="calc-foot">绿地率为规划控制输入项，不参与强排数值联动，仅作为设计约束参考。总户数要求用于校验排布是否达到目标套数。</p>
+            </div>
+
+            <div class="card">
+              <h2><span class="dot"></span>配建要求</h2>
+              <p class="hint">下列为规范强配或经验值，已按区位带出，可手改为项目特定要求。</p>
+              <label class="calc-fld"><span class="lab">车位·住宅 <span class="src code">规范强配</span></span>
+                <div class="calc-inp"><input id="resStd" type="number" step="0.01" value="0.4"><span class="unit">辆/户</span></div>
+              </label>
+              <label class="calc-fld"><span class="lab">车位·商业 <span class="src code">规范强配</span></span>
+                <div class="calc-inp"><input id="comStd" type="number" step="0.1" value="1.7"><span class="unit">辆/万㎡</span></div>
+              </label>
+              <label class="calc-fld"><span class="lab">人防比例（地上×） <span class="src code">规范强配</span></span>
+                <div class="calc-inp"><input id="rfacR" type="number" step="0.1" value="9"><span class="unit">%</span></div>
+              </label>
+              <label class="calc-fld"><span class="lab">设备用房比例（地下×） <span class="src exp">经验值</span></span>
+                <div class="calc-inp"><input id="eqR" type="number" step="0.1" value="5"><span class="unit">%</span></div>
+              </label>
+              <p class="calc-foot">来源：车位《北京市居住公共服务设施配置指标》京政发〔2015〕7号；人防 北京市人防办（R2·r≤2.0→9%）；设备用房无硬性规范比例，按设计经验取值。</p>
+            </div>
+
+            <div class="card">
+              <h2><span class="dot"></span>户型配比要求 <span class="src proj" style="margin-left:auto">硬性指标</span></h2>
+              <p class="hint">排出来的户型须满足此要求。面积配比与数量配比不同时满足，二选一填写。</p>
+              <div class="calc-toggle" id="mixToggle">
+                <button data-m="area" class="on" onclick="setMix('area')">仅面积</button>
+                <button data-m="num" onclick="setMix('num')">仅数量</button>
+              </div>
+              <div id="grpArea">
+                <div class="grp-title">面积配比（各户型面积 ÷ 地上建面）</div>
+                <div class="mix4" id="areaReq"></div>
+              </div>
+              <div id="grpNum" style="display:none">
+                <div class="grp-title">数量配比（各户型户数 ÷ 总户数）</div>
+                <div class="mix4" id="numReq"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 中栏：设计指标 -->
+          <div class="calc-col m">
+            <div class="calc-cap m">设计指标（实际强排）</div>
+            <div class="card">
+              <h2><span class="dot"></span>户型组合（实际强排设计）</h2>
+              <p class="hint">逐栋填写「套型面积 / 每层户数 / 层数 / 单元数」。套型面积为自由输入，按项目实际填写；如需满足商业配套占比，可点「＋首层商业」以商业行（类型=商业、层数=1）均摊计入。</p>
+              <div class="calc-chips">
+                <span class="calc-chip" onclick="addUnit(20)">＋20㎡</span>
+                <span class="calc-chip" onclick="addUnit(26)">＋26㎡</span>
+                <span class="calc-chip" onclick="addUnit(32)">＋32㎡</span>
+                <span class="calc-chip" onclick="addUnit(40)">＋40㎡</span>
+                <span class="calc-chip" onclick="addUnit(0,'com')">＋首层商业</span>
+              </div>
+              <div id="units"></div>
+              <button class="calc-addrow" id="addUnit">＋ 添加自定义户型</button>
+            </div>
+
+            <div class="card">
+              <h2><span class="dot"></span>其他地上面积与车位数</h2>
+              <p class="hint">公共配套为独立地上项；车位数由户数/商业面积派生，地下车位自动联动。</p>
+              <div class="calc-two">
+                <label class="calc-fld"><span class="lab">公共配套</span>
+                  <div class="calc-inp"><input id="pub" type="number" value="1322.92"><span class="unit">㎡</span></div>
+                </label>
+                <label class="calc-fld"><span class="lab">商业面积 <b style="color:var(--text-3);font-weight:500">车位用</b></span>
+                  <div class="calc-inp"><input id="carea" type="number" value="1069.6"><span class="unit">㎡</span></div>
+                </label>
+              </div>
+              <div class="calc-two">
+                <label class="calc-fld"><span class="lab">地上车位数</span>
+                  <div class="calc-inp"><input id="pabove" type="number" value="70"><span class="unit">辆</span></div>
+                </label>
+                <label class="calc-fld"><span class="lab">停车效率</span>
+                  <div class="calc-inp"><input id="peff" type="number" value="37"><span class="unit">㎡/辆</span></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="llm">
+                <div class="lh">🤖 大模型强排建议（探索项）</div>
+                <textarea id="llmQ" placeholder="例如：在容积率不超 2.0、限高 24m 前提下，如何组合层数/楼栋数达到 22513㎡ 计容？"></textarea>
+                <button class="calc-btn primary block" id="llmBtn" style="margin-top:8px">生成建议并对话微调</button>
+                <div class="sug" id="llmSug"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右栏：测算结果 -->
+          <div class="calc-col r">
+            <div class="calc-cap r">测算结果（实时联动）</div>
+            <div class="card">
+              <div class="hero ok" id="heroFar">
+                <div class="rt">容积率（地上计容 ÷ 用地）</div>
+                <div class="rv" id="rFar">–<small> ×</small></div>
+                <div class="bar"><i id="rFarBar" style="width:0%"></i></div>
+                <div class="cap"><span>上限 <b id="rFarCap">2.0</b></span><span id="rFarState">–</span></div>
+              </div>
+              <div class="chk-strip" id="chkStrip"></div>
+              <div class="res-grid">
+                <div class="rc"><div class="rl">地上建筑面积</div><div class="rv2" id="rAbove">–<small>㎡</small></div></div>
+                <div class="rc"><div class="rl">地下建筑面积</div><div class="rv2" id="rUnder">–<small>㎡</small></div></div>
+                <div class="rc"><div class="rl">总建筑面积</div><div class="rv2" id="rTotal">–<small>㎡</small></div></div>
+                <div class="rc"><div class="rl">建筑基底面积</div><div class="rv2" id="rFoot">–<small>㎡</small></div></div>
+                <div class="rc"><div class="rl">建筑密度</div><div class="rv2" id="rDen">–<small>%</small></div></div>
+                <div class="rc"><div class="rl">总户数</div><div class="rv2" id="rUnits">–<small>户</small></div></div>
+                <div class="rc"><div class="rl">机动车位（总数）</div><div class="rv2" id="rPark">–<small>辆</small></div></div>
+                <div class="rc derived"><div class="rl">地下车位数 <span class="src exp" style="font-size:8px;padding:1px 5px">联动</span></div><div class="rv2" id="rPunder">–<small>辆</small></div></div>
+                <div class="rc derived"><div class="rl">人防面积（地上×<span id="rRfac">9</span>%）</div><div class="rv2" id="rRfacA">–<small>㎡</small></div></div>
+                <div class="rc derived"><div class="rl">设备用房（地下×<span id="rEq">5</span>%）</div><div class="rv2" id="rEqA">–<small>㎡</small></div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2><span class="dot"></span>户型配比校验</h2>
+              <p class="hint">对照左侧「户型配比要求」校验实际排布（仅启用维度参与校验）。</p>
+              <div class="mix">
+                <div class="mh" id="mhArea"><span>面积配比（各户型面积 ÷ 地上建面）</span><b id="mixAreaNote"></b></div>
+                <div class="bar2" id="barArea"></div>
+                <div class="mh" id="mhNum" style="display:none"><span>数量配比（各户型户数 ÷ 总户数）</span><b id="mixNumNote"></b></div>
+                <div class="bar2" id="barNum" style="display:none"></div>
+                <div class="leg" id="leg"></div>
+              </div>
+            </div>
+
+            <button class="excel-btn" id="genExcel">⬇ 一键生成经济技术指标 Excel</button>
+            <div class="calc-note">
+              数据来源：昌平东小口 009 号地块设计条件+经济技术指标（已填版）<br>
+              引擎口径：单元面积=每层户数×套型面积；户数=I×H×G；栋面积=G×H×J；容积率=地上÷用地；<br>
+              地下=(总车位−地上车位)×停车效率；人防=地上×比例；设备=地下×比例
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 我的项目 ===== -->
+      <div class="view" id="view-projects">
+        <div class="view-head">
+          <div class="vtitle">我的项目</div>
+          <div class="actions"><button class="btn primary" onclick="openNewProject()">+ 新建项目</button></div>
+        </div>
+        <div class="list" id="projList"></div>
+      </div>
+
+      <!-- ===== 设置 ===== -->
+      <div class="view" id="view-settings">
+        <div class="view-head">
+          <div class="vtitle">设置</div>
+          <div class="actions"><span class="note">规则库由专业人员标定，支持导出与回滚</span></div>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="section-h">规则库管理</div>
+            <div class="list">
+              <div class="card" style="cursor:default;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:14px;font-weight:600">容积率与退线规则</div><div class="note" style="margin-top:2px">56 条 · 最近更新 2026-07-28</div></div><span class="tag info">管理</span></div>
+              <div class="card" style="cursor:default;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:14px;font-weight:600">奖励系数规则</div><div class="note" style="margin-top:2px">8 条 · 最近更新 2026-07-25</div></div><span class="tag info">管理</span></div>
+            </div>
+            <div class="section-h">信源库管理</div>
+            <div class="list">
+              <div class="card" style="cursor:default;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:14px;font-weight:600">政策文件清单</div><div class="note" style="margin-top:2px">28 份 · 覆盖国标/市级/区级</div></div><span class="tag info">管理</span></div>
+            </div>
+            <div class="section-h">个人设置</div>
+            <div class="list">
+              <div class="card" style="cursor:default;display:flex;justify-content:space-between;align-items:center"><div style="font-size:14px;font-weight:600">默认城市</div><span style="color:var(--text-3);font-size:13px">北京 ›</span></div>
+              <div class="card" style="cursor:default;display:flex;justify-content:space-between;align-items:center"><div style="font-size:14px;font-weight:600">常用指标模板</div><span style="color:var(--text-3);font-size:13px">管理 ›</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="side-card"><div class="section-h" style="margin:0 0 10px">数据与导出</div>
+              <div class="note">支持将规则库、信源库导出为 JSON / 离线备份；为后续数据库迁移预留接口。</div>
+              <div style="height:10px"></div>
+              <button class="btn ghost block" onclick="alert('已导出规则库 JSON')">导出规则库</button>
+            </div>
+            <div class="side-card"><div class="section-h" style="margin:0 0 8px">关于</div>
+              <div class="note">城市更新合规参谋 Agent v1.0<br>规则由专业人员标定，系统只做计算与文本整理。</div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  <!-- 抽屉（详情）：内嵌于主区，从右侧滑入，不覆盖左侧导航 -->
+  <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="t" id="drawerTitle">详情</div>
+      <div class="x" onclick="closeDrawer()">✕</div>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+  </div>
+</div>
+
+<!-- 意见反馈弹窗 -->
+<div class="modal-mask" id="modalFeedback">
+  <div class="modal">
+    <div class="close" onclick="closeFeedback()">✕</div>
+    <h3>意见反馈</h3>
+    <div class="field"><label>类型</label><select><option>功能建议</option><option>规则纠错</option><option>体验问题</option><option>其他</option></select></div>
+    <div class="field"><label>问题描述</label><textarea placeholder="请描述您遇到的问题或建议…"></textarea></div>
+    <button class="btn primary block" onclick="closeFeedback()">提交反馈</button>
+  </div>
+</div>
+
+<script>
+/* 修复原型中历史遗留的闭合标签错位：确保所有功能页都在同一个主内容区。 */
+(function normalizeViewContainer(){
+  var content=document.querySelector('.main > .content');
+  if(!content)return;
+  document.querySelectorAll('.view').forEach(function(view){content.appendChild(view);});
+})();
+
+function sizeFocusDrawer(){
+  var overlay=document.getElementById('overlay'),drawer=document.getElementById('drawer');
+  if(!overlay||!drawer)return;
+  var area=overlay.getBoundingClientRect();
+  drawer.style.width=Math.round(area.width*.85)+'px';
+  drawer.style.height=Math.round(area.height*.85)+'px';
+}
+sizeFocusDrawer();
+window.addEventListener('resize',sizeFocusDrawer);
+
+function switchView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  var el=document.getElementById('view-'+name); if(el) el.classList.add('active');
+  document.querySelectorAll('.navitem').forEach(n=>n.classList.remove('active'));
+  var nav=document.querySelector('.navitem[data-view="'+name+'"]'); if(nav) nav.classList.add('active');
+  var ts=document.getElementById('topSearch'); if(ts) ts.style.display=(name==='home')?'':'none';
+  if(name==='flow' && typeof renderFlow==='function') renderFlow();
+  closeDrawer();
+  window.scrollTo(0,0);
+}
+function openDrawer(title,html){document.getElementById('drawerTitle').textContent=title;document.getElementById('drawerBody').innerHTML=html;document.getElementById('drawer').classList.add('show');document.getElementById('overlay').classList.add('show');}
+function closeDrawer(){document.getElementById('drawer').classList.remove('show');document.getElementById('overlay').classList.remove('show');}
+function openFeedback(){document.getElementById('modalFeedback').classList.add('show');}
+function closeFeedback(){document.getElementById('modalFeedback').classList.remove('show');}
+
+/* ===== 流程导航数据（双轨 + 审批分支） ===== */
+/* 主流程依据用户提供的入库项目流程文本整理；审批阶段节点按分支适用性标注 */
+var FLOW_TRACKS={
+  law:{name:'入库项目主流程（法规 / 审批）',stages:[
+    {phase:'储备阶段',nodes:[
+      '申请纳入储备项目库',
+      '联合审查 → 入库项目专项服务保障',
+      '策划生成阶段'
+    ]},
+    {phase:'初审阶段',nodes:[
+      '认定并调整项目至实施项目库（最终确定统筹主体或实施主体）',
+      '区级联合会商 + 纳入城市更新计划（三个分支）',
+      '策划生成阶段'
+    ]},
+    {phase:'会商阶段',branches:[
+      {name:'分支一 · 实施方案联合审查项目',tag:'B1',nodes:['编制项目实施方案','申请联合审查项目实施方案','上报批准函告']},
+      {name:'分支二 · 其他项目（无需编制实施方案，需规划手续）',tag:'B2',nodes:['编制规划设计方案','申请审查规划设计方案','上报批准函告']},
+      {name:'分支三 · 其他项目（无需编制实施方案，无需规划手续）',tag:'B3',nodes:['编制设计方案']}
+    ]},
+    {phase:'审批阶段',nodes:[
+      {t:'用地审批与土地获取 + 立项批复',applies:['B1','B2'],note:'仅分支一、二'},
+      {t:'建设工程规划许可',applies:['B1','B2'],note:'仅分支一、二'},
+      {t:'建设工程施工许可',applies:['B1','B2','B3'],note:'分支一、二、三均需'}
+    ]},
+    {phase:'开工阶段',nodes:['开工']},
+    {phase:'竣工阶段',nodes:['竣工验收']},
+    {phase:'运营阶段',nodes:[
+      '不动产权属登记 + 公用服务事项变更与市政接入',
+      '经营执照与许可办理 · 金融信贷担保等业务办理'
+    ]}
+  ]},
+  platform:{name:'多规合一协同平台（并行参考）',stages:[
+    {phase:'储备阶段',nodes:['平台申报储备项目','合规性辅助审查','平台确认入库','策划生成（平台协同）']},
+    {phase:'初审阶段',nodes:['平台认定实施项目库','区级联合会商（线上）','纳入平台更新计划','策划生成（平台协同）']},
+    {phase:'会商阶段',branches:[
+      {name:'分支一 · 实施方案联合审查项目',tag:'B1',nodes:['平台提交实施方案','多规合一联合审查','平台推送批准函告']},
+      {name:'分支二 · 其他项目（需规划手续）',tag:'B2',nodes:['平台申请规划设计方案审查','平台推送批准函告']},
+      {name:'分支三 · 其他项目（无需手续）',tag:'B3',nodes:['平台提交设计方案']}
+    ]},
+    {phase:'审批阶段',nodes:[
+      {t:'平台并联办理用地审批 + 立项',applies:['B1','B2'],note:'仅分支一、二'},
+      {t:'平台推送建设工程规划许可',applies:['B1','B2'],note:'仅分支一、二'},
+      {t:'平台办理建设工程施工许可',applies:['B1','B2','B3'],note:'分支一、二、三均需'}
+    ]},
+    {phase:'开工阶段',nodes:['平台登记开工']},
+    {phase:'竣工阶段',nodes:['平台竣工验收备案']},
+    {phase:'运营阶段',nodes:['不动产登记 + 市政接入（平台协同）','经营许可与金融信贷（平台协同）']}
+  ]}
+};
+/* 项目类型 → 审批分支（依据：更新方式通常对应的审批路径；需用户确认映射） */
+var PT_BRANCH={'old':'B2','plant':'B1','area':'B1','rent':'B2'};
+var flowState={track:'law',pt:'all'};
+function renderFlow(){
+  var t=FLOW_TRACKS[flowState.track];
+  var map=flowState.pt==='all'?null:PT_BRANCH[flowState.pt];
+  var h='';
+  t.stages.forEach(function(s){
+    h+='<div class="phase"><div class="phase-h"><span class="pl">'+s.phase+'</span><span class="ln"></span></div>';
+    if(s.branches){
+      h+='<div class="branches">';
+      s.branches.forEach(function(b){
+        var cls='branch'+(map?(b.tag===map?' hot':' dim'):'');
+        var badge=map?(b.tag===map?'当前路径':'其他路径'):'条件分支';
+        h+='<div class="'+cls+'"><div class="bn">'+b.name+'<span class="tag '+(b.tag==='B1'?'info':b.tag==='B2'?'ok':'warn')+'">'+badge+'</span></div>'+
+           '<div class="ph-body">'+b.nodes.map(function(n){return '<div class="fnode">'+n+'</div>';}).join('')+'</div></div>';
+      });
+      h+='</div>';
+    } else {
+      h+='<div class="ph-body">';
+      s.nodes.forEach(function(n){
+        if(typeof n==='string'){
+          h+='<div class="fnode">'+n+'</div>';
+        } else {
+          var on=!map||n.applies.indexOf(map)>=0;
+          var tag=map?(on?'<span class="apptag on">适用</span>':'<span class="apptag off">不适用·'+n.note+'</span>'):'<span class="apptag off">'+n.note+'</span>';
+          h+='<div class="fnode'+(map&&!on?' dim':'')+'"><span>'+n.t+'</span>'+tag+'</div>';
+        }
+      });
+      h+='</div>';
+    }
+    h+='</div>';
+  });
+  document.getElementById('flow2').innerHTML=h;
+  document.querySelectorAll('#trackTabs .track-tab').forEach(function(e){e.classList.toggle('active',e.dataset.track===flowState.track);});
+  document.querySelectorAll('.ptype-row .pchip').forEach(function(e){e.classList.toggle('active',e.dataset.pt===flowState.pt);});
+}
+document.querySelectorAll('#trackTabs .track-tab').forEach(function(e){e.addEventListener('click',function(){flowState.track=e.dataset.track;renderFlow();});});
+document.querySelectorAll('.ptype-row .pchip').forEach(function(e){e.addEventListener('click',function(){flowState.pt=e.dataset.pt;renderFlow();});});
+
+/* ===== 数据 ===== */
+var policyData=[
+ {t:'《北京市城市更新条例》',no:'北京市人大常委会公告〔2023〕8号',date:'2023-03-01 施行',st:'现行有效',clause:'第十二条 城市更新项目实行项目库管理，由区人民政府组织编制并更新。',kw:['容积率','奖励','流程','立项']},
+ {t:'《北京市城乡规划条例》',no:'北京市人大常委会公告〔2019〕14号',date:'2019-07-01 施行',st:'现行有效',clause:'第四十条 建设工程应当符合容积率、建筑高度、退线等规划条件。',kw:['容积率','退线','限高']},
+ {t:'旧厂房改造导则（市级）',no:'京规自发〔2022〕15号',date:'2022-05-01 施行',st:'现行有效',clause:'奖励条款：采用装配式建筑且比例达标，容积率可奖励 +0.10。',kw:['装配式','奖励']},
+ {t:'公共空间奖励政策（区级）',no:'朝更新办〔2024〕3号',date:'2024-01-10 施行',st:'现行有效',clause:'向公众开放不少于 8 小时的公共空间，容积率可奖励 +0.10。',kw:['公共空间','奖励']},
+ {t:'老旧小区改造技术导则',no:'京建发〔2021〕9号',date:'2021-04-01 施行',st:'已修改',clause:'综合整治类项目不突破既有容积率，重点完善配套设施。',kw:['老旧小区','改造','流程']}
+];
+var caseData=[
+ {t:'朝阳某旧厂区更新项目',type:'旧厂房',scale:'片区 8.6万㎡ · 可建 21.5万㎡',points:'应用公共空间奖励 +0.10，最终容积率 2.6；保留工业风貌。',rel:'公共空间奖励政策（区级）'},
+ {t:'海淀老旧小区改造',type:'老旧小区',scale:'片区 3.2万㎡ · 综合整治',points:'不突破既有容积率，补齐养老、停车配套。',rel:'老旧小区改造技术导则'},
+ {t:'西城商圈活化',type:'商圈',scale:'片区 5.1万㎡ · 可建 12.8万㎡',points:'混合功能植入，地下连通轨道交通。',rel:'《北京市城市更新条例》'},
+ {t:'丰台片区统筹更新',type:'片区',scale:'片区 14.0万㎡ · 可建 35.0万㎡',points:'分期实施，奖励额度按地块挤占追踪。',rel:'旧厂房改造导则（市级）'},
+ {t:'东城胡同微更新',type:'老旧小区',scale:'片区 1.8万㎡ · 综合整治',points:'院落共生，低干预、保肌理。',rel:'老旧小区改造技术导则'}
+];
+var projData=[
+ {name:'朝阳某旧厂区更新项目',scale:'片区规模 8.6 万㎡',type:'旧厂房改造',status:'进行中',tag:'info'},
+ {name:'海淀老旧小区改造',scale:'片区规模 3.2 万㎡',type:'综合整治',status:'草稿',tag:'gray'}
+];
+
+/* ===== 政策查询 ===== */
+function setQ(t){document.getElementById('qInput').value=t;runQuery();}
+var agentApiBase='http://127.0.0.1:8765';
+var livePolicyData=[];
+var currentLivePolicy=null;
+function safeText(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function safeExcerpt(v){return safeText(v).replace(/&lt;mark&gt;/g,'<mark>').replace(/&lt;\/mark&gt;/g,'</mark>');}
+function displayDate(p){return p.published_date||p.effective_date||'日期待补充';}
+async function runQuery(){
+  var q=(document.getElementById('qInput').value||'').trim();
+  var district=(document.getElementById('qDistrict').value||'').trim();
+  var box=document.getElementById('queryResults');
+  if(!q){box.innerHTML='<div class="card" style="cursor:default;text-align:center;color:var(--text-3);padding:40px">请输入政策问题或关键词。</div>';return;}
+  box.innerHTML='<div class="card" style="cursor:default;text-align:center;color:var(--text-3);padding:40px">正在连接政策数据库并检索…</div>';
+  try{
+    var response=await fetch(agentApiBase+'/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,district:district})});
+    var data=await response.json();
+    if(!response.ok)throw new Error(data.message||'请求失败（HTTP '+response.status+'）');
+    if(data.message){box.innerHTML='<div class="card" style="cursor:default;text-align:center;color:var(--text-3);padding:40px">'+safeText(data.message)+'</div>';return;}
+    livePolicyData=[];
+    var total=0,h='<div class="section-h">真实数据库检索结果 <span class="sub">'+safeText(data.disclaimer||'')+'</span></div>';
+    Object.keys(data.groups||{}).forEach(function(group){
+      var items=data.groups[group]||[]; if(!items.length)return; total+=items.length;
+      h+='<div class="section-h" style="margin-top:18px">'+safeText(group)+' <span class="sub">'+items.length+' 条</span></div>';
+      items.forEach(function(p){var idx=livePolicyData.length;livePolicyData.push(p);
+        var status=p.validity_status||p.evidence_tier||p.record_type||'参考';
+        var sourceUrl=p.official_url||p.url||'';
+        var title=sourceUrl?'<a href="'+safeText(sourceUrl)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:15px;font-weight:700;color:var(--text);text-decoration:underline;text-underline-offset:3px">'+safeText(p.title)+' ↗</a>':'<div style="font-size:15px;font-weight:700">'+safeText(p.title)+'</div>';
+        h+='<div class="card" onclick="openLivePolicy('+idx+')"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div>'+title+'<div class="note" style="margin-top:4px">'+safeText([p.jurisdiction_name,p.document_number,displayDate(p)].filter(Boolean).join(' · '))+'</div><div class="note" style="margin-top:6px">'+safeExcerpt(p.excerpt||'')+'</div></div><span class="tag '+(status==='现行有效'||status==='direct_basis'?'ok':'gray')+'">'+safeText(status)+'</span></div></div>';
+      });
+    });
+    box.innerHTML=total?h:'<div class="card" style="cursor:default;text-align:center;color:var(--text-3);padding:40px">未命中结果，请换一个更具体的关键词。</div>';
+  }catch(err){
+    box.innerHTML='<div class="card" style="cursor:default;text-align:center;color:var(--danger);padding:40px">检索失败：'+safeText(err.message||err)+'<div class="note" style="margin-top:10px">请确认 Agent API 正在运行：<code>http://127.0.0.1:8765/health</code></div></div>';
+  }
+}
+function openLivePolicy(i){var p=livePolicyData[i]||{};currentLivePolicy=p;var url=p.official_url||p.url||'';
+  var meta=[p.jurisdiction_name,p.issuing_authority,p.document_number,displayDate(p),p.effective_date?'生效：'+p.effective_date:''].filter(Boolean).map(safeText).join('<br>');
+  var html='<div class="tag '+(p.evidence_tier==='direct_basis'?'ok':'gray')+'" style="margin-bottom:12px">'+safeText(p.evidence_tier||p.record_type||'参考资料')+'</div>'+
+   '<div style="font-size:18px;font-weight:800;line-height:1.4">'+safeText(p.title)+'</div>'+
+   '<div class="note" style="margin-top:8px">'+meta+'</div><div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">命中要点</div><div class="card" style="cursor:default;background:var(--surface-2)">'+safeExcerpt(p.excerpt||'暂无摘要，请查看原文。')+'</div>'+
+   '<div style="margin-top:14px"><button class="btn ghost block" onclick="loadFullText()">点击展开全文</button></div><div id="fullText" style="margin-top:12px"></div>'+
+   (url?'<div style="margin-top:10px"><a class="btn ghost block" href="'+safeText(url)+'" target="_blank" rel="noopener" style="text-decoration:none">查看来源原文 ↗</a></div>':'')+
+   '<div class="hr"></div><div class="note">本结果按地域和证据等级分层呈现，仅供政策与案例研究参考，不构成自动合规结论。</div>';
+  openDrawer('检索结果详情',html);
+}
+async function loadFullText(){var box=document.getElementById('fullText'),p=currentLivePolicy||{};
+  if(!p.id||!p.result_kind){box.innerHTML='<div class="note">该条资料暂不支持展开全文。</div>';return;}
+  box.innerHTML='<div class="note">正在读取全文…</div>';
+  try{var r=await fetch(agentApiBase+'/detail?kind='+encodeURIComponent(p.result_kind)+'&id='+encodeURIComponent(p.id));var data=await r.json();if(!r.ok)throw new Error(data.message||'读取失败');
+    box.innerHTML='<div class="hr"></div><div style="font-size:14px;font-weight:700;margin-bottom:8px">全文</div><div class="card" style="cursor:default;background:var(--surface-2);white-space:pre-wrap;line-height:1.8">'+safeText(data.content||'该资料暂未保存全文。')+'</div>';
+  }catch(err){box.innerHTML='<div class="note" style="color:var(--danger)">全文读取失败：'+safeText(err.message||err)+'</div>';}
+}
+document.getElementById('qInput').addEventListener('keydown',function(e){if(e.key==='Enter')runQuery();});
+function openPolicy(i){var p=policyData[i];
+  var html='<div class="tag '+(p.st==='现行有效'?'ok':'warn')+'" style="margin-bottom:12px">'+p.st+'</div>'+
+   '<div style="font-size:18px;font-weight:800;line-height:1.4">'+p.t+'</div>'+
+   '<div class="note" style="margin-top:8px">发文号：'+p.no+'</div>'+
+   '<div class="note">生效日期：'+p.date+'</div>'+
+   '<div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">适用条款</div>'+
+   '<div class="card" style="cursor:default;background:var(--surface-2)">'+p.clause+'</div>'+
+   '<div style="margin-top:14px"><a class="btn ghost block" href="'+p.link+'" target="_blank" style="text-decoration:none">查看官方原文 ↗</a></div>'+
+   '<div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">相关案例</div>'+
+   '<div class="card" style="cursor:pointer" onclick="closeDrawer();switchView(\'cases\')"><div class="note">在案例库中查看同类项目经验 ›</div></div>';
+  openDrawer('政策详情',html);
+}
+
+/* ===== 案例库 ===== */
+var currentCaseType='all';
+function renderCases(){var h='';var kw=(document.getElementById('caseSearch').value||'').trim();
+  caseData.forEach(function(c,i){
+    if(currentCaseType!=='all'&&c.type!==currentCaseType)return;
+    if(kw && c.t.indexOf(kw)<0 && c.points.indexOf(kw)<0 && c.rel.indexOf(kw)<0)return;
+    h+='<div class="card" onclick="openCase('+i+')"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div><div style="font-size:15px;font-weight:700">'+c.t+'</div><div class="note" style="margin-top:4px">'+c.scale+'</div></div><span class="tag gray">'+c.type+'</span></div></div>';
+  });
+  if(!h)h='<div class="card" style="cursor:default;text-align:center;color:var(--text-3);padding:40px">未找到匹配案例</div>';
+  document.getElementById('caseList').innerHTML=h;}
+function filterCases(type,el){currentCaseType=type;document.querySelectorAll('#caseChips .chip').forEach(function(c){c.classList.remove('active')});if(el)el.classList.add('active');renderCases();}
+function filterCasesByText(v){renderCases();}
+function openCase(i){var c=caseData[i];
+  var html='<div class="tag gray" style="margin-bottom:12px">'+c.type+'</div>'+
+   '<div style="font-size:18px;font-weight:800">'+c.t+'</div>'+
+   '<div class="note" style="margin-top:8px">'+c.scale+'</div>'+
+   '<div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">经验要点</div>'+
+   '<div class="card" style="cursor:default;background:var(--surface-2)">'+c.points+'</div>'+
+   '<div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">关联政策</div>'+
+   '<div class="note">'+c.rel+'</div>'+
+   '<div style="margin-top:14px"><button class="btn primary block" onclick="closeDrawer();switchView(\'calc\')">用该案例试算指标</button></div>';
+  openDrawer('案例详情',html);
+}
+
+/* ===== 指标计算引擎（三栏强排） ===== */
+const TYPES=['20','26','32','40'];
+const COL={'20':'#335CFF','26':'#15B97A','32':'#F5A524','40':'#9B5CFF'};
+const TOL=0.05;
+let mixMode='area';
+let REQ={area:{'20':15,'26':40,'32':25,'40':10}, num:{'20':15,'26':40,'32':25,'40':10}};
+const calc$=id=>document.getElementById(id);
+const calcNum=id=>parseFloat(calc$(id).value)||0;
+const fmt=n=>(Math.round(n*100)/100).toLocaleString('zh-CN',{maximumFractionDigits:2});
+
+const DISTRICTS=[
+  {v:'dongcheng',n:'东城区',z:1},{v:'xicheng',n:'西城区',z:1},
+  {v:'chaoyang',n:'朝阳区',z:2},{v:'haidian',n:'海淀区',z:2},
+  {v:'fengtai',n:'丰台区',z:3},{v:'shijingshan',n:'石景山区',z:3},
+  {v:'changping',n:'昌平区',z:3},{v:'tongzhou',n:'通州区',z:3},
+  {v:'daxing',n:'大兴区',z:3},{v:'shunyi',n:'顺义区',z:3},
+  {v:'miyun',n:'密云区',z:4},{v:'huairou',n:'怀柔区',z:4},
+  {v:'pinggu',n:'平谷区',z:4},{v:'yanqing',n:'延庆区',z:4}
+];
+const ZONE_NAME={1:'一类地区(二环内)',2:'二类地区(二~三环)',3:'三类地区(三~五环/新城)',4:'四类地区(其他)'};
+const PARK_CODE={1:0.1,2:0.15,3:0.15,4:0.2};
+
+let units=[
+  {name:'户型1', F:20,I:19,G:8,H:1,type:'res'},
+  {name:'户型2', F:26,I:47,G:7,H:1,type:'res'},
+  {name:'户型3', F:32,I:23,G:8,H:1,type:'res'},
+  {name:'户型4', F:40,I:8, G:7,H:1,type:'res'}
+];
+let unitSeq=4;
+
+function initDistrict(){
+  const sel=calc$('district'); sel.innerHTML='';
+  DISTRICTS.forEach(d=>{ const o=document.createElement('option'); o.value=d.v; o.textContent=d.n+'（'+ZONE_NAME[d.z]+'）'; sel.appendChild(o); });
+  sel.value='changping';
+}
+function renderReq(){
+  ['area','num'].forEach(k=>{
+    const box=calc$(k==='area'?'areaReq':'numReq'); box.innerHTML='';
+    TYPES.forEach(t=>{
+      const div=document.createElement('div'); div.className='mf';
+      div.innerHTML='<div class="ml"><span>'+t+'㎡</span><b>'+(REQ[k][t]!=null?REQ[k][t]:'—')+'%</b></div>'+
+        '<div class="calc-inp"><input type="number" step="0.1" placeholder="填%" data-k="'+k+'" data-t="'+t+'" value="'+(REQ[k][t]!=null?REQ[k][t]:'')+'"><span class="unit">%</span></div>';
+      box.appendChild(div);
+    });
+  });
+  boxBind();
+}
+function boxBind(){
+  document.querySelectorAll('#areaReq input,#numReq input').forEach(inp=>{
+    inp.addEventListener('input',e=>{
+      const k=e.target.dataset.k,t=e.target.dataset.t,v=e.target.value;
+      REQ[k][t]= v===''?null:parseFloat(v);
+      const b=e.target.closest('.mf').querySelector('.ml b'); b.textContent=(REQ[k][t]!=null?REQ[k][t]:'—')+'%';
+      calcCompute();
+    });
+  });
+}
+function setMix(m){
+  mixMode=m;
+  document.querySelectorAll('#mixToggle button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  calc$('grpArea').style.display=(m==='num')?'none':'';
+  calc$('mhArea').style.display=(m==='num')?'none':'';
+  calc$('grpNum').style.display=(m==='area')?'none':'';
+  calc$('mhNum').style.display=(m==='area')?'none':'';
+  calcCompute();
+}
+function renderUnits(){
+  const box=calc$('units'); box.innerHTML='';
+  units.forEach((u,i)=>{
+    const row=document.createElement('div'); row.className='unit-row'+(u.type==='com'?' com':'');
+    row.innerHTML=
+      '<div class="uh"><span class="idx">'+(i+1)+'</span>'+
+      '<input class="nm" value="'+u.name+'" data-i="'+i+'" data-k="name">'+
+      '<select class="tp" data-i="'+i+'" data-k="type">'+
+        '<option value="res"'+(u.type==='res'?' selected':'')+'>住宅</option>'+
+        '<option value="com"'+(u.type==='com'?' selected':'')+'>商业</option>'+
+        '<option value="pub"'+(u.type==='pub'?' selected':'')+'>配套</option>'+
+      '</select>'+
+      '<button class="del" data-i="'+i+'">×</button></div>'+
+      '<div class="ug">'+
+        mini('套型面积',u.F,'F',i)+mini('每层户数',u.I,'I',i)+mini('层数',u.G,'G',i)+mini('单元数',u.H,'H',i)+
+      '</div>'+
+      '<div class="ud"><span>标准层 <b id="uj'+i+'">–</b></span><span>户数 <b id="uk'+i+'">–</b></span><span>栋面积 <b id="ul'+i+'">–</b></span><span>基底 <b id="um'+i+'">–</b></span></div>';
+    box.appendChild(row);
+  });
+  box.querySelectorAll('input.nm').forEach(inp=>inp.addEventListener('input',e=>{units[+e.target.dataset.i].name=e.target.value;}));
+  box.querySelectorAll('select.tp').forEach(s=>s.addEventListener('change',e=>{units[+e.target.dataset.i].type=e.target.value; renderUnits(); calcCompute();}));
+  box.querySelectorAll('.ug input').forEach(inp=>inp.addEventListener('input',e=>{
+    const i=+e.target.dataset.i,k=e.target.dataset.k;
+    units[i][k]=parseFloat(e.target.value)||0;
+    if(k==='F'||k==='I'){ calc$('uj'+i).textContent=(units[i].F*units[i].I)+' ㎡'; }
+    calcCompute();
+  }));
+  box.querySelectorAll('.del').forEach(b=>b.addEventListener('click',e=>{units.splice(+e.target.dataset.i,1);renderUnits();calcCompute();}));
+}
+function mini(lab,val,k,i){
+  return '<div class="mini"><div class="ml">'+lab+'</div><input type="number" placeholder="'+(k==='F'?'填面积':'')+'" value="'+(val==null?'':val)+'" data-i="'+i+'" data-k="'+k+'"></div>';
+}
+function addUnit(F,type){
+  type=type||'res';
+  if(type==='com'){ units.push({name:'首层商业',F:F||20,I:10,G:1,H:1,type}); }
+  else { const blank=(F===null||F===undefined); unitSeq++; units.push({name:'户型'+unitSeq,F:blank?null:F||null,I:10,G:6,H:1,type}); }
+  renderUnits(); calcCompute();
+}
+calc$('addUnit').addEventListener('click',()=>addUnit(null,'res'));
+
+calc$('applySpec').addEventListener('click',()=>{
+  const z=(DISTRICTS.find(d=>d.v===calc$('district').value)||{}).z||3;
+  calc$('resStd').value=PARK_CODE[z];
+  calc$('comStd').value=1.7;
+  const farC=calcNum('far');
+  calc$('rfacR').value = farC>2.0?11:9;
+  calcCompute();
+});
+
+function pill(ok,label,val,gap,neu){
+  const cls=neu?'neu':(ok?'ok':'bad');
+  const ic=neu?'•':(ok?'✓':'!');
+  return '<span class="pill '+cls+'"><span class="pd">'+ic+'</span>'+label+' <b>'+val+'</b>'+(gap?' <i>'+gap+'</i>':'')+'</span>';
+}
+
+function calcCompute(){
+  const S=calcNum('S'),farC=calcNum('far'),hmax=calcNum('hmax'),fh=calcNum('fh'),grn=calcNum('grn'),dmax=calcNum('dmax'),kReq=calcNum('kReq');
+  const pub=calcNum('pub'),carea=calcNum('carea'),peff=calcNum('peff'),pabove=calcNum('pabove');
+  const resStd=calcNum('resStd'),comStd=calcNum('comStd'),rfacR=calcNum('rfacR'),eqR=calcNum('eqR');
+  let above=0,foot=0,totalK=0;
+  const per=units.map(u=>{
+    const J=u.F*u.I,K=u.I*u.H*u.G,L=u.G*u.H*J,M=u.H*J;
+    above+=L; foot+=M; totalK+=K;
+    return {u,J,K,L,M};
+  });
+  above+=pub;
+  const rfac=above*rfacR/100;
+  const park=totalK*resStd + carea/10000*comStd;
+  const pUnder=Math.max(0,park-pabove);
+  const under=pUnder*peff;
+  const total=above+under;
+  const eq=under*eqR/100;
+  const farA=S>0?above/S:0;
+  const den=S>0?foot/S:0;
+  const maxLayer=fh>0?Math.floor(hmax/fh):0;
+  const maxG=Math.max(...per.map(p=>p.u.G));
+  per.forEach((p,i)=>{ calc$('uj'+i).textContent=p.J+' ㎡'; calc$('uk'+i).textContent=p.K; calc$('ul'+i).textContent=fmt(p.L); calc$('um'+i).textContent=fmt(p.M); });
+  const farOver=farA>farC?((farA/farC-1)*100):0;
+  const farMargin=farC>farA?((farC-farA)/farC*100):0;
+  calc$('rFar').innerHTML=farA.toFixed(3)+'<small> ×</small>';
+  calc$('rFarCap').textContent=farC;
+  const farRatio=farC>0?farA/farC:1;
+  calc$('rFarBar').style.width=Math.min(100,farRatio*100)+'%';
+  const farOk=farA<=farC;
+  calc$('heroFar').className='hero '+(farOk?'ok':'bad');
+  calc$('rFarState').textContent=farOk?('合规 · 余量 '+farMargin.toFixed(1)+'%'):('超限 '+farOver.toFixed(1)+'%');
+  calc$('rAbove').innerHTML=fmt(above)+'<small>㎡</small>';
+  calc$('rUnder').innerHTML=fmt(under)+'<small>㎡</small>';
+  calc$('rTotal').innerHTML=fmt(total)+'<small>㎡</small>';
+  calc$('rFoot').innerHTML=fmt(foot)+'<small>㎡</small>';
+  calc$('rDen').innerHTML=(den*100).toFixed(1)+'<small>%</small>';
+  calc$('rUnits').innerHTML=totalK+'<small>户</small>';
+  calc$('rPark').innerHTML=fmt(park)+'<small>辆</small>';
+  calc$('rPunder').innerHTML=pUnder.toFixed(0)+'<small>辆</small>';
+  calc$('rRfac').textContent=rfacR; calc$('rRfacA').innerHTML=fmt(rfac)+'<small>㎡</small>';
+  calc$('rEq').textContent=eqR; calc$('rEqA').innerHTML=fmt(eq)+'<small>㎡</small>';
+  const strip=[];
+  const hOk=maxG<=maxLayer;
+  const hGap=hOk?('余 '+(maxLayer-maxG)+' 层'):('超 '+(maxG-maxLayer)+' 层');
+  strip.push(pill(hOk,'限高',maxG+' / '+maxLayer+' 层',hGap));
+  if(dmax>0){ const dOk=den*100<=dmax; const dGap=dOk?('余 '+(dmax-den*100).toFixed(1)+'%'):('超 '+(den*100-dmax).toFixed(1)+'%'); strip.push(pill(dOk,'密度',(den*100).toFixed(1)+'%',dGap)); }
+  else { strip.push(pill(true,'密度',(den*100).toFixed(1)+'%','未设上限',true)); }
+  if(kReq>0){ const diff=totalK-kReq; const pct=Math.abs(diff/kReq*100); const kOk=pct<=5; const kGap=(diff>=0?'超 ':'缺 ')+pct.toFixed(1)+'%'; strip.push(pill(kOk,'总户数',totalK+' / '+kReq+' 户',kGap)); }
+  else { strip.push(pill(true,'总户数',totalK+' 户','未设要求',true)); }
+  calc$('chkStrip').innerHTML=strip.join('');
+  TYPES.forEach(t=>{
+    const rows=per.filter(p=>p.u.type==='res'&&p.u.F==+t);
+    const L=rows.reduce((s,p)=>s+p.L,0), K=rows.reduce((s,p)=>s+p.K,0);
+    const aPct=above>0?L/above:0, nPct=totalK>0?K/totalK:0;
+    window['_a'+t]=aPct; window['_n'+t]=nPct;
+  });
+  renderMix(per);
+}
+function renderMix(per){
+  const activeArea=mixMode!=='num', activeNum=mixMode!=='area';
+  let areaHtml='',numHtml='',legHtml='',areaBad=false,numBad=false;
+  TYPES.forEach(t=>{
+    const aPct=window['_a'+t]||0, nPct=window['_n'+t]||0;
+    const aOk=REQ.area[t]==null?true:Math.abs(aPct-REQ.area[t]/100)<=TOL;
+    const nOk=REQ.num[t]==null?true:Math.abs(nPct-REQ.num[t]/100)<=TOL;
+    if(activeArea&&!aOk)areaBad=true; if(activeNum&&!nOk)numBad=true;
+    const aw=aPct*100, nw=nPct*100;
+    if(activeArea)areaHtml+='<i style="width:'+aw+'%;background:'+COL[t]+'" title="'+t+'㎡ 面'+(aw).toFixed(1)+'%">'+(aw>9?(aw).toFixed(0)+'%':'')+'</i>';
+    if(activeNum)numHtml+='<i style="width:'+nw+'%;background:'+COL[t]+'" title="'+t+'㎡ 数'+(nw).toFixed(1)+'%">'+(nw>9?(nw).toFixed(0)+'%':'')+'</i>';
+    const aReq=REQ.area[t], nReq=REQ.num[t];
+    legHtml+='<span><i style="background:'+COL[t]+'"></i>'+t+'㎡ 要求'+
+      (aReq!=null?' 面'+aReq+'%':'')+(nReq!=null?' / 数'+nReq+'%':'')+
+      ' → 实'+(aw).toFixed(0)+'%/'+(nw).toFixed(0)+'%</span>';
+  });
+  calc$('barArea').innerHTML=areaHtml; calc$('barNum').innerHTML=numHtml; calc$('leg').innerHTML=legHtml;
+  if(activeArea)calc$('mixAreaNote').innerHTML=areaBad?'<span style="color:#F2545B">面积配比偏离</span>':'<span style="color:#15B97A">达标</span>';
+  if(activeNum)calc$('mixNumNote').innerHTML=numBad?'<span style="color:#F2545B">数量配比偏离</span>':'<span style="color:#15B97A">达标</span>';
+  calc$('barArea').style.display=activeArea?'':'none';
+  calc$('barNum').style.display=activeNum?'':'none';
+}
+calc$('llmBtn').addEventListener('click',()=>{
+  const S=calcNum('S'),farC=calcNum('far');
+  let a=0; units.forEach(u=>{a+=u.G*u.H*(u.F*u.I);}); a+=calcNum('pub');
+  const farA=S>0?a/S:0;
+  const sug=calc$('llmSug'); sug.classList.add('show');
+  sug.innerHTML='【演示建议】当前容积率 <b>'+farA.toFixed(3)+'</b>，上限 '+farC+'。'+
+    (farA>farC
+      ? '建议：①将 26㎡ 公寓层数 7→6（户数−47、栋面积−1222）；②或削减 40㎡ 公寓楼栋数，使地上建面回落至 '+(S*farC).toLocaleString('zh-CN',{maximumFractionDigits:0})+'㎡ 以内。'
+      : '当前合规。可在限高内提高层数或增加楼栋数以提升容积率利用率。')+
+    '<br><span style="color:#9AA3B2">（接 LLM 后，此处支持基于指标逻辑的自然语言对话，如“把层数调到 6 看看容积率”并实时联动上方输入。）</span>';
+});
+calc$('genExcel').addEventListener('click',()=>{
+  const S=calcNum('S'),farC=calcNum('far'),hmax=calcNum('hmax'),fh=calcNum('fh'),grn=calcNum('grn'),dmax=calcNum('dmax'),kReq=calcNum('kReq');
+  const pub=calcNum('pub'),carea=calcNum('carea'),peff=calcNum('peff'),pabove=calcNum('pabove');
+  const resStd=calcNum('resStd'),comStd=calcNum('comStd'),rfacR=calcNum('rfacR'),eqR=calcNum('eqR');
+  let above=0,foot=0,totalK=0; const per=units.map(u=>{const J=u.F*u.I,K=u.I*u.H*u.G,L=u.G*u.H*J,M=u.H*J;above+=L;foot+=M;totalK+=K;return{u,J,K,L,M};});
+  above+=pub;
+  const rfac=above*rfacR/100, park=totalK*resStd+carea/10000*comStd, pUnder=Math.max(0,park-pabove), under=pUnder*peff, total=above+under, eq=under*eqR/100;
+  const farA=S>0?above/S:0, den=S>0?foot/S:0, maxLayer=fh>0?Math.floor(hmax/fh):0, maxG=Math.max(...per.map(p=>p.u.G));
+  const row=(k,v)=>'<tr><td style="padding:5px 10px;border:1px solid #ddd;font-weight:600;background:#F7F9FC;width:180px">'+k+'</td><td style="padding:5px 10px;border:1px solid #ddd">'+v+'</td></tr>';
+  let basic='';
+  basic+=row('用地面积 (㎡)',fmt(S));
+  basic+=row('容积率上限',farC);
+  basic+=row('实际容积率',farA.toFixed(3)+(farA>farC?'（超限 '+((farA/farC-1)*100).toFixed(1)+'%）':'（合规）'));
+  basic+=row('建筑限高 (m)',hmax);
+  basic+=row('标准层高 (m)',fh);
+  basic+=row('最高层数 / 限高允许层数',maxG+' / '+maxLayer);
+  basic+=row('绿地率下限 (%)',grn);
+  basic+=row('地上建筑面积 (㎡)',fmt(above));
+  basic+=row('地下建筑面积 (㎡)',fmt(under));
+  basic+=row('总建筑面积 (㎡)',fmt(total));
+  basic+=row('建筑基底面积 (㎡)',fmt(foot));
+  basic+=row('建筑密度 (%)',(den*100).toFixed(1)+(dmax>0?(den*100>dmax?'（超上限）':'（合规）'):''));
+  basic+=row('总户数 (户)',totalK+(kReq>0?(' / 目标 '+kReq):''));
+  basic+=row('机动车位总数 (辆)',fmt(park));
+  basic+=row('地上车位数 (辆)',pabove);
+  basic+=row('地下车位数 (辆)',pUnder.toFixed(0));
+  basic+=row('人防面积 (㎡)',fmt(rfac));
+  basic+=row('设备用房 (㎡)',fmt(eq));
+  let detail='<tr><th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">户型</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">类型</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">套型面积</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">每层户数</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">层数</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">单元数</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">标准层</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">户数</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">栋面积</th>'+
+    '<th style="padding:5px 8px;border:1px solid #ddd;background:#335CFF;color:#fff">基底</th></tr>';
+  per.forEach(p=>{ detail+='<tr>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.u.name+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+('res'===p.u.type?'住宅':p.u.type==='com'?'商业':'配套')+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.u.F+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.u.I+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.u.G+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.u.H+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.J+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+p.K+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+fmt(p.L)+'</td>'+
+    '<td style="padding:5px 8px;border:1px solid #ddd">'+fmt(p.M)+'</td></tr>'; });
+  const html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body>'+
+    '<h2 style="font-family:sans-serif">经济技术指标</h2>'+
+    '<table style="border-collapse:collapse;font-family:sans-serif;font-size:12px">'+basic+'</table>'+
+    '<h3 style="font-family:sans-serif;margin-top:18px">户型组合明细</h3>'+
+    '<table style="border-collapse:collapse;font-family:sans-serif;font-size:12px">'+detail+'</table>'+
+    '</body></html>';
+  const blob=new Blob(['﻿'+html],{type:'application/vnd.ms-excel;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='经济技术指标.xls'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+['S','far','hmax','fh','grn','dmax','kReq','pub','carea','peff','pabove','resStd','comStd','rfacR','eqR'].forEach(id=>{
+  calc$(id).addEventListener('input',calcCompute);
+});
+initDistrict(); renderReq(); renderUnits(); calcCompute();
+
+/* ===== 我的项目 ===== */
+function renderProjects(){var h='';projData.forEach(function(p,i){
+  h+='<div class="card" onclick="openProject('+i+')"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:15px;font-weight:700">'+p.name+'</div><div class="note" style="margin-top:3px">'+p.scale+' · '+p.type+'</div></div><span class="tag '+p.tag+'">'+p.status+'</span></div></div>';
+});document.getElementById('projList').innerHTML=h;}
+function openProject(i){var p=projData[i];
+  var html='<div class="tag '+p.tag+'" style="margin-bottom:12px">'+p.status+'</div>'+
+   '<div style="font-size:18px;font-weight:800">'+p.name+'</div>'+
+   '<div class="note" style="margin-top:8px">'+p.scale+'</div>'+
+   '<div class="note">更新类型：'+p.type+'</div>'+
+   '<div class="hr"></div>'+
+   '<div style="font-size:14px;font-weight:700;margin-bottom:8px">快捷操作</div>'+
+   '<button class="btn primary block" onclick="closeDrawer();switchView(\'calc\')">进入指标计算</button>'+
+   '<div style="height:10px"></div>'+
+   '<button class="btn ghost block" onclick="closeDrawer();switchView(\'query\')">查询相关政策</button>';
+  openDrawer('项目详情',html);}
+function openNewProject(){var html='<div class="field"><label>项目名称</label><input id="npName" placeholder="如：某某更新项目"></div>'+
+  '<div class="field"><label>更新类型</label><select id="npType"><option>旧厂房改造</option><option>老旧小区</option><option>商圈更新</option><option>片区统筹</option></select></div>'+
+  '<div class="field"><label>片区规模（万㎡）</label><input id="npScale" type="number" placeholder="如 8.6"></div>'+
+  '<button class="btn primary block" onclick="submitProject()">创建项目</button>';
+  openDrawer('新建项目',html);}
+function submitProject(){var n=document.getElementById('npName').value||'未命名项目';var t=document.getElementById('npType').value;var s=document.getElementById('npScale').value||'0';
+  projData.unshift({name:n,scale:'片区规模 '+s+' 万㎡',type:t,status:'草稿',tag:'gray'});renderProjects();closeDrawer();}
+
+/* 初始化 */
+runQuery(); renderCases(); renderProjects();
+</script>
+</body>
+</html>
